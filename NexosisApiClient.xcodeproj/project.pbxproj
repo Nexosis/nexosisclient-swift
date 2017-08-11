@@ -1,0 +1,1455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		21F9F9EBB78BB37D0BA48DE9 /* Pods_NexosisApiClientTvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DE982A88682B986244C958 /* Pods_NexosisApiClientTvOSTests.framework */; };
+		3F35CF07079EE3C845CF1B3B /* Pods_NexosisApiClientMacOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1038E3DF13557A38D09F3429 /* Pods_NexosisApiClientMacOSTests.framework */; };
+		59B72484ECFF21B9EE9D0AE9 /* Pods_NexosisApiClientiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB1FD000B094C5EFB483477 /* Pods_NexosisApiClientiOS.framework */; };
+		8607D4BD2923724D28139CD0 /* Pods_NexosisApiClientTvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24BC1EA4D27E98088A6818D /* Pods_NexosisApiClientTvOS.framework */; };
+		9531191B43B51FDBE1208091 /* Pods_NexosisApiClientiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB074FBC3392BC9DB34E564 /* Pods_NexosisApiClientiOSTests.framework */; };
+		A18C02AE94674FE2FB3EDAF3 /* Pods_NexosisApiClientWatchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCF45F9622DAB3B7FA834A8 /* Pods_NexosisApiClientWatchOS.framework */; };
+		D1B25D2F2DF030F98A2FC9B9 /* Pods_NexosisApiClientMacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA20A2C31511B6FEACD3609 /* Pods_NexosisApiClientMacOS.framework */; };
+		E404F3911F3E28B90086EF40 /* NexosisClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC37E21F3E1CF9007C6CC5 /* NexosisClientSpec.swift */; };
+		E404F3921F3E28BA0086EF40 /* NexosisClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC37E21F3E1CF9007C6CC5 /* NexosisClientSpec.swift */; };
+		E404F3931F3E28BB0086EF40 /* NexosisClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC37E21F3E1CF9007C6CC5 /* NexosisClientSpec.swift */; };
+		E404F3991F3E462D0086EF40 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E404F3981F3E462D0086EF40 /* .gitignore */; };
+		E48DCE711F3DF4FC00AD5BB6 /* LICENSE.md in Sources */ = {isa = PBXBuildFile; fileRef = E48DCE6E1F3DF4FC00AD5BB6 /* LICENSE.md */; };
+		E48DCE721F3DF4FC00AD5BB6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E48DCE6F1F3DF4FC00AD5BB6 /* Podfile */; };
+		E48DCE731F3DF4FC00AD5BB6 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E48DCE701F3DF4FC00AD5BB6 /* README.md */; };
+		E4DB0DC91F3CE0DA0038DF5C /* NexosisApiClientiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DB0DC01F3CE0DA0038DF5C /* NexosisApiClientiOS.framework */; };
+		E4DB0DE51F3CE0F30038DF5C /* NexosisApiClientMacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DB0DDC1F3CE0F30038DF5C /* NexosisApiClientMacOS.framework */; };
+		E4DB0E011F3CE1070038DF5C /* NexosisApiClientTvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DB0DF81F3CE1060038DF5C /* NexosisApiClientTvOS.framework */; };
+		E4DB0E1F1F3D0B7A0038DF5C /* NexosisClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DB0E1E1F3D0B7A0038DF5C /* NexosisClient.swift */; };
+		E4DB0E201F3D0B7A0038DF5C /* NexosisClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DB0E1E1F3D0B7A0038DF5C /* NexosisClient.swift */; };
+		E4DB0E211F3D0B7A0038DF5C /* NexosisClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DB0E1E1F3D0B7A0038DF5C /* NexosisClient.swift */; };
+		E4DB0E221F3D0B7A0038DF5C /* NexosisClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DB0E1E1F3D0B7A0038DF5C /* NexosisClient.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E4DB0DCA1F3CE0DA0038DF5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4DB0D981F3CDF790038DF5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E4DB0DBF1F3CE0DA0038DF5C;
+			remoteInfo = "NexosisApiClient-iOS";
+		};
+		E4DB0DE61F3CE0F30038DF5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4DB0D981F3CDF790038DF5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E4DB0DDB1F3CE0F30038DF5C;
+			remoteInfo = "NexosisApiClient-macOS";
+		};
+		E4DB0E021F3CE1070038DF5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4DB0D981F3CDF790038DF5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E4DB0DF71F3CE1060038DF5C;
+			remoteInfo = "NexosisApiClient-tvOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1038E3DF13557A38D09F3429 /* Pods_NexosisApiClientMacOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NexosisApiClientMacOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A917978A0CAD8BEA5A74BE9 /* Pods-NexosisApiClientTvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientTvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientTvOSTests/Pods-NexosisApiClientTvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		1F3C6393C9C11ECB876C4143 /* Pods-NexosisApiClientiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientiOS/Pods-NexosisApiClientiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		22DE982A88682B986244C958 /* Pods_NexosisApiClientTvOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NexosisApiClientTvOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D70877F672D9AD4FF2359DD /* Pods-NexosisApiClientWatchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientWatchOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientWatchOS/Pods-NexosisApiClientWatchOS.debug.xcconfig"; sourceTree = "<group>"; };
+		3038FFF451331E32E7472023 /* Pods-NexosisApiClientWatchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientWatchOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientWatchOS/Pods-NexosisApiClientWatchOS.release.xcconfig"; sourceTree = "<group>"; };
+		3DB074FBC3392BC9DB34E564 /* Pods_NexosisApiClientiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NexosisApiClientiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EA20A2C31511B6FEACD3609 /* Pods_NexosisApiClientMacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NexosisApiClientMacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FB1FD000B094C5EFB483477 /* Pods_NexosisApiClientiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NexosisApiClientiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4146F32E957E0EBDEDFCD9B9 /* Pods-NexosisApiClientMacOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientMacOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientMacOSTests/Pods-NexosisApiClientMacOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		447ADD36C49339409A776F81 /* Pods-NexosisApiClientiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientiOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientiOSTests/Pods-NexosisApiClientiOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		5048B0D373AAC55FE4C4049A /* Pods-NexosisApiClientTvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientTvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientTvOS/Pods-NexosisApiClientTvOS.release.xcconfig"; sourceTree = "<group>"; };
+		58DA04516F0A9EDC80C11D0F /* Pods-NexosisApiClientiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientiOS/Pods-NexosisApiClientiOS.release.xcconfig"; sourceTree = "<group>"; };
+		5BFD44D5B7FD56E8513F5049 /* Pods-NexosisApiClientMacOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientMacOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientMacOSTests/Pods-NexosisApiClientMacOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5DCF45F9622DAB3B7FA834A8 /* Pods_NexosisApiClientWatchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NexosisApiClientWatchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7F6FA12FD35B12A8264B90F /* Pods-NexosisApiClientMacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientMacOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientMacOS/Pods-NexosisApiClientMacOS.release.xcconfig"; sourceTree = "<group>"; };
+		B8D09FCDA5889467151D0C2E /* Pods-NexosisApiClientTvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientTvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientTvOS/Pods-NexosisApiClientTvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D616481DDDA3C795EB38C260 /* Pods-NexosisApiClientMacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientMacOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientMacOS/Pods-NexosisApiClientMacOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E10192EA0E0EB22F35778AD3 /* Pods-NexosisApiClientTvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientTvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientTvOSTests/Pods-NexosisApiClientTvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E404F3981F3E462D0086EF40 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E48DCE6E1F3DF4FC00AD5BB6 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		E48DCE6F1F3DF4FC00AD5BB6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E48DCE701F3DF4FC00AD5BB6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E4AC37E21F3E1CF9007C6CC5 /* NexosisClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NexosisClientSpec.swift; sourceTree = "<group>"; };
+		E4DB0DC01F3CE0DA0038DF5C /* NexosisApiClientiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NexosisApiClientiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4DB0DC31F3CE0DA0038DF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4DB0DC81F3CE0DA0038DF5C /* NexosisApiClientiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NexosisApiClientiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4DB0DCF1F3CE0DA0038DF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4DB0DDC1F3CE0F30038DF5C /* NexosisApiClientMacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NexosisApiClientMacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4DB0DDF1F3CE0F30038DF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4DB0DE41F3CE0F30038DF5C /* NexosisApiClientMacOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NexosisApiClientMacOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4DB0DEB1F3CE0F30038DF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4DB0DF81F3CE1060038DF5C /* NexosisApiClientTvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NexosisApiClientTvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4DB0DFB1F3CE1060038DF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4DB0E001F3CE1060038DF5C /* NexosisApiClientTvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NexosisApiClientTvOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4DB0E071F3CE1070038DF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4DB0E141F3CE1170038DF5C /* NexosisApiClientWatchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NexosisApiClientWatchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4DB0E171F3CE1170038DF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4DB0E1E1F3D0B7A0038DF5C /* NexosisClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NexosisClient.swift; sourceTree = "<group>"; };
+		EFC119A245E09B79BAF49621 /* Pods-NexosisApiClientiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexosisApiClientiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NexosisApiClientiOSTests/Pods-NexosisApiClientiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F24BC1EA4D27E98088A6818D /* Pods_NexosisApiClientTvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NexosisApiClientTvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E4DB0DBC1F3CE0DA0038DF5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59B72484ECFF21B9EE9D0AE9 /* Pods_NexosisApiClientiOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DC51F3CE0DA0038DF5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4DB0DC91F3CE0DA0038DF5C /* NexosisApiClientiOS.framework in Frameworks */,
+				9531191B43B51FDBE1208091 /* Pods_NexosisApiClientiOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DD81F3CE0F30038DF5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B25D2F2DF030F98A2FC9B9 /* Pods_NexosisApiClientMacOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DE11F3CE0F30038DF5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4DB0DE51F3CE0F30038DF5C /* NexosisApiClientMacOS.framework in Frameworks */,
+				3F35CF07079EE3C845CF1B3B /* Pods_NexosisApiClientMacOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DF41F3CE1060038DF5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8607D4BD2923724D28139CD0 /* Pods_NexosisApiClientTvOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DFD1F3CE1060038DF5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4DB0E011F3CE1070038DF5C /* NexosisApiClientTvOS.framework in Frameworks */,
+				21F9F9EBB78BB37D0BA48DE9 /* Pods_NexosisApiClientTvOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0E101F3CE1170038DF5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A18C02AE94674FE2FB3EDAF3 /* Pods_NexosisApiClientWatchOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D7D8C0999A1F46061F3A1C2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D616481DDDA3C795EB38C260 /* Pods-NexosisApiClientMacOS.debug.xcconfig */,
+				A7F6FA12FD35B12A8264B90F /* Pods-NexosisApiClientMacOS.release.xcconfig */,
+				5BFD44D5B7FD56E8513F5049 /* Pods-NexosisApiClientMacOSTests.debug.xcconfig */,
+				4146F32E957E0EBDEDFCD9B9 /* Pods-NexosisApiClientMacOSTests.release.xcconfig */,
+				B8D09FCDA5889467151D0C2E /* Pods-NexosisApiClientTvOS.debug.xcconfig */,
+				5048B0D373AAC55FE4C4049A /* Pods-NexosisApiClientTvOS.release.xcconfig */,
+				E10192EA0E0EB22F35778AD3 /* Pods-NexosisApiClientTvOSTests.debug.xcconfig */,
+				1A917978A0CAD8BEA5A74BE9 /* Pods-NexosisApiClientTvOSTests.release.xcconfig */,
+				2D70877F672D9AD4FF2359DD /* Pods-NexosisApiClientWatchOS.debug.xcconfig */,
+				3038FFF451331E32E7472023 /* Pods-NexosisApiClientWatchOS.release.xcconfig */,
+				1F3C6393C9C11ECB876C4143 /* Pods-NexosisApiClientiOS.debug.xcconfig */,
+				58DA04516F0A9EDC80C11D0F /* Pods-NexosisApiClientiOS.release.xcconfig */,
+				EFC119A245E09B79BAF49621 /* Pods-NexosisApiClientiOSTests.debug.xcconfig */,
+				447ADD36C49339409A776F81 /* Pods-NexosisApiClientiOSTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E4DB0D971F3CDF790038DF5C = {
+			isa = PBXGroup;
+			children = (
+				E404F3981F3E462D0086EF40 /* .gitignore */,
+				E48DCE6E1F3DF4FC00AD5BB6 /* LICENSE.md */,
+				E48DCE6F1F3DF4FC00AD5BB6 /* Podfile */,
+				E48DCE701F3DF4FC00AD5BB6 /* README.md */,
+				E4DB0E1C1F3CE17D0038DF5C /* Source */,
+				E4DB0E1D1F3CE1C70038DF5C /* Tests */,
+				E4DB0DC11F3CE0DA0038DF5C /* NexosisApiClient-iOS */,
+				E4DB0DCC1F3CE0DA0038DF5C /* NexosisApiClient-iOSTests */,
+				E4DB0DDD1F3CE0F30038DF5C /* NexosisApiClient-macOS */,
+				E4DB0DE81F3CE0F30038DF5C /* NexosisApiClient-macOSTests */,
+				E4DB0DF91F3CE1060038DF5C /* NexosisApiClient-tvOS */,
+				E4DB0E041F3CE1070038DF5C /* NexosisApiClient-tvOSTests */,
+				E4DB0E151F3CE1170038DF5C /* NexosisApiClient-watchOS */,
+				E4DB0DA21F3CDF790038DF5C /* Products */,
+				D7D8C0999A1F46061F3A1C2A /* Pods */,
+				F3975E0C3B2CABF04418A207 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E4DB0DA21F3CDF790038DF5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4DB0DC01F3CE0DA0038DF5C /* NexosisApiClientiOS.framework */,
+				E4DB0DC81F3CE0DA0038DF5C /* NexosisApiClientiOSTests.xctest */,
+				E4DB0DDC1F3CE0F30038DF5C /* NexosisApiClientMacOS.framework */,
+				E4DB0DE41F3CE0F30038DF5C /* NexosisApiClientMacOSTests.xctest */,
+				E4DB0DF81F3CE1060038DF5C /* NexosisApiClientTvOS.framework */,
+				E4DB0E001F3CE1060038DF5C /* NexosisApiClientTvOSTests.xctest */,
+				E4DB0E141F3CE1170038DF5C /* NexosisApiClientWatchOS.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E4DB0DC11F3CE0DA0038DF5C /* NexosisApiClient-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E4DB0DC31F3CE0DA0038DF5C /* Info.plist */,
+			);
+			path = "NexosisApiClient-iOS";
+			sourceTree = "<group>";
+		};
+		E4DB0DCC1F3CE0DA0038DF5C /* NexosisApiClient-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4DB0DCF1F3CE0DA0038DF5C /* Info.plist */,
+			);
+			path = "NexosisApiClient-iOSTests";
+			sourceTree = "<group>";
+		};
+		E4DB0DDD1F3CE0F30038DF5C /* NexosisApiClient-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				E4DB0DDF1F3CE0F30038DF5C /* Info.plist */,
+			);
+			path = "NexosisApiClient-macOS";
+			sourceTree = "<group>";
+		};
+		E4DB0DE81F3CE0F30038DF5C /* NexosisApiClient-macOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4DB0DEB1F3CE0F30038DF5C /* Info.plist */,
+			);
+			path = "NexosisApiClient-macOSTests";
+			sourceTree = "<group>";
+		};
+		E4DB0DF91F3CE1060038DF5C /* NexosisApiClient-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				E4DB0DFB1F3CE1060038DF5C /* Info.plist */,
+			);
+			path = "NexosisApiClient-tvOS";
+			sourceTree = "<group>";
+		};
+		E4DB0E041F3CE1070038DF5C /* NexosisApiClient-tvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4DB0E071F3CE1070038DF5C /* Info.plist */,
+			);
+			path = "NexosisApiClient-tvOSTests";
+			sourceTree = "<group>";
+		};
+		E4DB0E151F3CE1170038DF5C /* NexosisApiClient-watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				E4DB0E171F3CE1170038DF5C /* Info.plist */,
+			);
+			path = "NexosisApiClient-watchOS";
+			sourceTree = "<group>";
+		};
+		E4DB0E1C1F3CE17D0038DF5C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E4DB0E1E1F3D0B7A0038DF5C /* NexosisClient.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		E4DB0E1D1F3CE1C70038DF5C /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC37E21F3E1CF9007C6CC5 /* NexosisClientSpec.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		F3975E0C3B2CABF04418A207 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3EA20A2C31511B6FEACD3609 /* Pods_NexosisApiClientMacOS.framework */,
+				1038E3DF13557A38D09F3429 /* Pods_NexosisApiClientMacOSTests.framework */,
+				F24BC1EA4D27E98088A6818D /* Pods_NexosisApiClientTvOS.framework */,
+				22DE982A88682B986244C958 /* Pods_NexosisApiClientTvOSTests.framework */,
+				5DCF45F9622DAB3B7FA834A8 /* Pods_NexosisApiClientWatchOS.framework */,
+				3FB1FD000B094C5EFB483477 /* Pods_NexosisApiClientiOS.framework */,
+				3DB074FBC3392BC9DB34E564 /* Pods_NexosisApiClientiOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E4DB0DBD1F3CE0DA0038DF5C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DD91F3CE0F30038DF5C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DF51F3CE1060038DF5C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0E111F3CE1170038DF5C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E4DB0DBF1F3CE0DA0038DF5C /* NexosisApiClientiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4DB0DD11F3CE0DA0038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientiOS" */;
+			buildPhases = (
+				879BFDA195B2A84991B6244F /* [CP] Check Pods Manifest.lock */,
+				E4DB0DBB1F3CE0DA0038DF5C /* Sources */,
+				E4DB0DBC1F3CE0DA0038DF5C /* Frameworks */,
+				E4DB0DBD1F3CE0DA0038DF5C /* Headers */,
+				E4DB0DBE1F3CE0DA0038DF5C /* Resources */,
+				7CFE57A899D363BEDCA57435 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NexosisApiClientiOS;
+			productName = "NexosisApiClient-iOS";
+			productReference = E4DB0DC01F3CE0DA0038DF5C /* NexosisApiClientiOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E4DB0DC71F3CE0DA0038DF5C /* NexosisApiClientiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4DB0DD41F3CE0DA0038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientiOSTests" */;
+			buildPhases = (
+				D0627123C1784DF78C7720AA /* [CP] Check Pods Manifest.lock */,
+				E4DB0DC41F3CE0DA0038DF5C /* Sources */,
+				E4DB0DC51F3CE0DA0038DF5C /* Frameworks */,
+				E4DB0DC61F3CE0DA0038DF5C /* Resources */,
+				73EA553D03DBA8DC7FF05183 /* [CP] Embed Pods Frameworks */,
+				3E94AB77299E70FA781288BB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4DB0DCB1F3CE0DA0038DF5C /* PBXTargetDependency */,
+			);
+			name = NexosisApiClientiOSTests;
+			productName = "NexosisApiClient-iOSTests";
+			productReference = E4DB0DC81F3CE0DA0038DF5C /* NexosisApiClientiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E4DB0DDB1F3CE0F30038DF5C /* NexosisApiClientMacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4DB0DED1F3CE0F30038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientMacOS" */;
+			buildPhases = (
+				AA71A23F944A1965C3CE7B4C /* [CP] Check Pods Manifest.lock */,
+				E4DB0DD71F3CE0F30038DF5C /* Sources */,
+				E4DB0DD81F3CE0F30038DF5C /* Frameworks */,
+				E4DB0DD91F3CE0F30038DF5C /* Headers */,
+				E4DB0DDA1F3CE0F30038DF5C /* Resources */,
+				6274290696F1A3DBCB5173F5 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NexosisApiClientMacOS;
+			productName = "NexosisApiClient-macOS";
+			productReference = E4DB0DDC1F3CE0F30038DF5C /* NexosisApiClientMacOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E4DB0DE31F3CE0F30038DF5C /* NexosisApiClientMacOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4DB0DF01F3CE0F30038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientMacOSTests" */;
+			buildPhases = (
+				0E6E83940AFA31F3507E22B0 /* [CP] Check Pods Manifest.lock */,
+				E4DB0DE01F3CE0F30038DF5C /* Sources */,
+				E4DB0DE11F3CE0F30038DF5C /* Frameworks */,
+				E4DB0DE21F3CE0F30038DF5C /* Resources */,
+				05C0AC620E487A9DA5872464 /* [CP] Embed Pods Frameworks */,
+				916964BBE48E06F8887BB9F2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4DB0DE71F3CE0F30038DF5C /* PBXTargetDependency */,
+			);
+			name = NexosisApiClientMacOSTests;
+			productName = "NexosisApiClient-macOSTests";
+			productReference = E4DB0DE41F3CE0F30038DF5C /* NexosisApiClientMacOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E4DB0DF71F3CE1060038DF5C /* NexosisApiClientTvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4DB0E091F3CE1070038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientTvOS" */;
+			buildPhases = (
+				8B5FC3C2B80CD3C265C348B8 /* [CP] Check Pods Manifest.lock */,
+				E4DB0DF31F3CE1060038DF5C /* Sources */,
+				E4DB0DF41F3CE1060038DF5C /* Frameworks */,
+				E4DB0DF51F3CE1060038DF5C /* Headers */,
+				E4DB0DF61F3CE1060038DF5C /* Resources */,
+				06863473F8081B5E2164AACC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NexosisApiClientTvOS;
+			productName = "NexosisApiClient-tvOS";
+			productReference = E4DB0DF81F3CE1060038DF5C /* NexosisApiClientTvOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E4DB0DFF1F3CE1060038DF5C /* NexosisApiClientTvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4DB0E0C1F3CE1070038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientTvOSTests" */;
+			buildPhases = (
+				3D329E5CCFEA4966CD843C9F /* [CP] Check Pods Manifest.lock */,
+				E4DB0DFC1F3CE1060038DF5C /* Sources */,
+				E4DB0DFD1F3CE1060038DF5C /* Frameworks */,
+				E4DB0DFE1F3CE1060038DF5C /* Resources */,
+				E55D03D959CA094E116E7778 /* [CP] Embed Pods Frameworks */,
+				435F099D01BF2503F4C785AA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4DB0E031F3CE1070038DF5C /* PBXTargetDependency */,
+			);
+			name = NexosisApiClientTvOSTests;
+			productName = "NexosisApiClient-tvOSTests";
+			productReference = E4DB0E001F3CE1060038DF5C /* NexosisApiClientTvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E4DB0E131F3CE1170038DF5C /* NexosisApiClientWatchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4DB0E191F3CE1170038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientWatchOS" */;
+			buildPhases = (
+				CE6B6C07C024981227460434 /* [CP] Check Pods Manifest.lock */,
+				E4DB0E0F1F3CE1170038DF5C /* Sources */,
+				E4DB0E101F3CE1170038DF5C /* Frameworks */,
+				E4DB0E111F3CE1170038DF5C /* Headers */,
+				E4DB0E121F3CE1170038DF5C /* Resources */,
+				3BBD3B08AD9711A271128CC9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NexosisApiClientWatchOS;
+			productName = "NexosisApiClient-watchOS";
+			productReference = E4DB0E141F3CE1170038DF5C /* NexosisApiClientWatchOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E4DB0D981F3CDF790038DF5C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Nexosis;
+				TargetAttributes = {
+					E4DB0DBF1F3CE0DA0038DF5C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = Y4MGET6X2A;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					E4DB0DC71F3CE0DA0038DF5C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = Y4MGET6X2A;
+						ProvisioningStyle = Automatic;
+					};
+					E4DB0DDB1F3CE0F30038DF5C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = Y4MGET6X2A;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					E4DB0DE31F3CE0F30038DF5C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = Y4MGET6X2A;
+						ProvisioningStyle = Automatic;
+					};
+					E4DB0DF71F3CE1060038DF5C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = Y4MGET6X2A;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					E4DB0DFF1F3CE1060038DF5C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = Y4MGET6X2A;
+						ProvisioningStyle = Automatic;
+					};
+					E4DB0E131F3CE1170038DF5C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = Y4MGET6X2A;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E4DB0D9B1F3CDF790038DF5C /* Build configuration list for PBXProject "NexosisApiClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E4DB0D971F3CDF790038DF5C;
+			productRefGroup = E4DB0DA21F3CDF790038DF5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E4DB0DBF1F3CE0DA0038DF5C /* NexosisApiClientiOS */,
+				E4DB0DC71F3CE0DA0038DF5C /* NexosisApiClientiOSTests */,
+				E4DB0DDB1F3CE0F30038DF5C /* NexosisApiClientMacOS */,
+				E4DB0DE31F3CE0F30038DF5C /* NexosisApiClientMacOSTests */,
+				E4DB0DF71F3CE1060038DF5C /* NexosisApiClientTvOS */,
+				E4DB0DFF1F3CE1060038DF5C /* NexosisApiClientTvOSTests */,
+				E4DB0E131F3CE1170038DF5C /* NexosisApiClientWatchOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E4DB0DBE1F3CE0DA0038DF5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E404F3991F3E462D0086EF40 /* .gitignore in Resources */,
+				E48DCE721F3DF4FC00AD5BB6 /* Podfile in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DC61F3CE0DA0038DF5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DDA1F3CE0F30038DF5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DE21F3CE0F30038DF5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DF61F3CE1060038DF5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DFE1F3CE1060038DF5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0E121F3CE1170038DF5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05C0AC620E487A9DA5872464 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NexosisApiClientMacOSTests/Pods-NexosisApiClientMacOSTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexosisApiClientMacOSTests/Pods-NexosisApiClientMacOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		06863473F8081B5E2164AACC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexosisApiClientTvOS/Pods-NexosisApiClientTvOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0E6E83940AFA31F3507E22B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NexosisApiClientMacOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3BBD3B08AD9711A271128CC9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexosisApiClientWatchOS/Pods-NexosisApiClientWatchOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D329E5CCFEA4966CD843C9F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NexosisApiClientTvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E94AB77299E70FA781288BB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexosisApiClientiOSTests/Pods-NexosisApiClientiOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		435F099D01BF2503F4C785AA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexosisApiClientTvOSTests/Pods-NexosisApiClientTvOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6274290696F1A3DBCB5173F5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexosisApiClientMacOS/Pods-NexosisApiClientMacOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73EA553D03DBA8DC7FF05183 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NexosisApiClientiOSTests/Pods-NexosisApiClientiOSTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexosisApiClientiOSTests/Pods-NexosisApiClientiOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CFE57A899D363BEDCA57435 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexosisApiClientiOS/Pods-NexosisApiClientiOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		879BFDA195B2A84991B6244F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NexosisApiClientiOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B5FC3C2B80CD3C265C348B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NexosisApiClientTvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		916964BBE48E06F8887BB9F2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexosisApiClientMacOSTests/Pods-NexosisApiClientMacOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA71A23F944A1965C3CE7B4C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NexosisApiClientMacOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE6B6C07C024981227460434 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NexosisApiClientWatchOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0627123C1784DF78C7720AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NexosisApiClientiOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E55D03D959CA094E116E7778 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NexosisApiClientTvOSTests/Pods-NexosisApiClientTvOSTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexosisApiClientTvOSTests/Pods-NexosisApiClientTvOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E4DB0DBB1F3CE0DA0038DF5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E48DCE731F3DF4FC00AD5BB6 /* README.md in Sources */,
+				E48DCE711F3DF4FC00AD5BB6 /* LICENSE.md in Sources */,
+				E4DB0E1F1F3D0B7A0038DF5C /* NexosisClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DC41F3CE0DA0038DF5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E404F3911F3E28B90086EF40 /* NexosisClientSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DD71F3CE0F30038DF5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4DB0E201F3D0B7A0038DF5C /* NexosisClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DE01F3CE0F30038DF5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E404F3921F3E28BA0086EF40 /* NexosisClientSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DF31F3CE1060038DF5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4DB0E211F3D0B7A0038DF5C /* NexosisClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0DFC1F3CE1060038DF5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E404F3931F3E28BB0086EF40 /* NexosisClientSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DB0E0F1F3CE1170038DF5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4DB0E221F3D0B7A0038DF5C /* NexosisClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E4DB0DCB1F3CE0DA0038DF5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E4DB0DBF1F3CE0DA0038DF5C /* NexosisApiClientiOS */;
+			targetProxy = E4DB0DCA1F3CE0DA0038DF5C /* PBXContainerItemProxy */;
+		};
+		E4DB0DE71F3CE0F30038DF5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E4DB0DDB1F3CE0F30038DF5C /* NexosisApiClientMacOS */;
+			targetProxy = E4DB0DE61F3CE0F30038DF5C /* PBXContainerItemProxy */;
+		};
+		E4DB0E031F3CE1070038DF5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E4DB0DF71F3CE1060038DF5C /* NexosisApiClientTvOS */;
+			targetProxy = E4DB0E021F3CE1070038DF5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E4DB0DB31F3CDF790038DF5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E4DB0DB41F3CDF790038DF5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E4DB0DD21F3CE0DA0038DF5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F3C6393C9C11ECB876C4143 /* Pods-NexosisApiClientiOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "NexosisApiClient-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexosis.NexosisApiClientiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E4DB0DD31F3CE0DA0038DF5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58DA04516F0A9EDC80C11D0F /* Pods-NexosisApiClientiOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "NexosisApiClient-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexosis.NexosisApiClientiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		E4DB0DD51F3CE0DA0038DF5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFC119A245E09B79BAF49621 /* Pods-NexosisApiClientiOSTests.debug.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				INFOPLIST_FILE = "NexosisApiClient-iOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexosis.NexosisApiClient-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E4DB0DD61F3CE0DA0038DF5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 447ADD36C49339409A776F81 /* Pods-NexosisApiClientiOSTests.release.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				INFOPLIST_FILE = "NexosisApiClient-iOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexosis.NexosisApiClient-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		E4DB0DEE1F3CE0F30038DF5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D616481DDDA3C795EB38C260 /* Pods-NexosisApiClientMacOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "NexosisApiClient-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexosis.NexosisApiClientMacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E4DB0DEF1F3CE0F30038DF5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7F6FA12FD35B12A8264B90F /* Pods-NexosisApiClientMacOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "NexosisApiClient-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexosis.NexosisApiClientMacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		E4DB0DF11F3CE0F30038DF5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BFD44D5B7FD56E8513F5049 /* Pods-NexosisApiClientMacOSTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				INFOPLIST_FILE = "NexosisApiClient-macOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexosis.NexosisApiClient-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E4DB0DF21F3CE0F30038DF5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4146F32E957E0EBDEDFCD9B9 /* Pods-NexosisApiClientMacOSTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				INFOPLIST_FILE = "NexosisApiClient-macOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexosis.NexosisApiClient-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		E4DB0E0A1F3CE1070038DF5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8D09FCDA5889467151D0C2E /* Pods-NexosisApiClientTvOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "NexosisApiClient-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexosis.NexosisApiClientTvOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		E4DB0E0B1F3CE1070038DF5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5048B0D373AAC55FE4C4049A /* Pods-NexosisApiClientTvOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "NexosisApiClient-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexosis.NexosisApiClientTvOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
+		E4DB0E0D1F3CE1070038DF5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E10192EA0E0EB22F35778AD3 /* Pods-NexosisApiClientTvOSTests.debug.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				INFOPLIST_FILE = "NexosisApiClient-tvOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexosis.NexosisApiClient-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		E4DB0E0E1F3CE1070038DF5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A917978A0CAD8BEA5A74BE9 /* Pods-NexosisApiClientTvOSTests.release.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				INFOPLIST_FILE = "NexosisApiClient-tvOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexosis.NexosisApiClient-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
+		E4DB0E1A1F3CE1170038DF5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D70877F672D9AD4FF2359DD /* Pods-NexosisApiClientWatchOS.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "NexosisApiClient-watchOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexosis.NexosisApiClientWatchOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		E4DB0E1B1F3CE1170038DF5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3038FFF451331E32E7472023 /* Pods-NexosisApiClientWatchOS.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y4MGET6X2A;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "NexosisApiClient-watchOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexosis.NexosisApiClientWatchOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E4DB0D9B1F3CDF790038DF5C /* Build configuration list for PBXProject "NexosisApiClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4DB0DB31F3CDF790038DF5C /* Debug */,
+				E4DB0DB41F3CDF790038DF5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4DB0DD11F3CE0DA0038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4DB0DD21F3CE0DA0038DF5C /* Debug */,
+				E4DB0DD31F3CE0DA0038DF5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4DB0DD41F3CE0DA0038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4DB0DD51F3CE0DA0038DF5C /* Debug */,
+				E4DB0DD61F3CE0DA0038DF5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4DB0DED1F3CE0F30038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4DB0DEE1F3CE0F30038DF5C /* Debug */,
+				E4DB0DEF1F3CE0F30038DF5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4DB0DF01F3CE0F30038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientMacOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4DB0DF11F3CE0F30038DF5C /* Debug */,
+				E4DB0DF21F3CE0F30038DF5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4DB0E091F3CE1070038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientTvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4DB0E0A1F3CE1070038DF5C /* Debug */,
+				E4DB0E0B1F3CE1070038DF5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4DB0E0C1F3CE1070038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientTvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4DB0E0D1F3CE1070038DF5C /* Debug */,
+				E4DB0E0E1F3CE1070038DF5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4DB0E191F3CE1170038DF5C /* Build configuration list for PBXNativeTarget "NexosisApiClientWatchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4DB0E1A1F3CE1170038DF5C /* Debug */,
+				E4DB0E1B1F3CE1170038DF5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E4DB0D981F3CDF790038DF5C /* Project object */;
+}
