@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '8.1'
 use_frameworks!
 
 target 'NexosisApiClientiOS' do
@@ -9,6 +9,7 @@ target 'NexosisApiClientiOS' do
     inherit! :search_paths
     pod 'Nimble', '~> 7.0.1'
     pod 'Quick', '~> 1.1.0'
+    pod 'Moxie', '~> 0.1.5'
   end
 
 end
@@ -20,6 +21,7 @@ target 'NexosisApiClientMacOS' do
     inherit! :search_paths
     pod 'Nimble', '~> 7.0.1'
     pod 'Quick', '~> 1.1.0'
+    pod 'Moxie', '~> 0.1.5'
   end
 
 end
@@ -31,6 +33,7 @@ target 'NexosisApiClientTvOS' do
     inherit! :search_paths
     pod 'Nimble', '~> 7.0.1'
     pod 'Quick', '~> 1.1.0'
+    pod 'Moxie', '~> 0.1.5'
   end
 
 end
