@@ -22,7 +22,7 @@ public class NexosisClient {
 
         var result = AccountBalance(amount: 0.0, currency: "")
 
-        if let accountBalanceHeader = response.response?.allHeaderFields["Nexosis-Account-Balance"] as? String {
+          if let accountBalanceHeader = response.response?.allHeaderFields["Nexosis-Account-Balance"] as? String {
 
           let parts = accountBalanceHeader.components(separatedBy: " ")
           result.amount = Double(parts.first ?? "") ?? 0.0
