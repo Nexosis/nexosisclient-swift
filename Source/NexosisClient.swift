@@ -13,26 +13,28 @@ public class NexosisClient {
 
   func fetchAccountBalance(completion: @escaping (AccountBalance) -> Void) {
 
+    let requester = RestRequester()
     let url = "\(baseUrl)/data?page=0&pageSize=1"
-    let headers: HTTPHeaders = [ "api-key": apiKey ]
+    let headers = [ "api-key": apiKey ]
+    let request = RestRequest(url: url, method: .get, headers: headers, body: [:])
 
-    Alamofire
-      .request(url, method: HTTPMethod.get, headers: headers)
-      .responseJSON { response in
-
+    requester.request( request,
+      success: { response in
         var result = AccountBalance(amount: 0.0, currency: "")
 
-          if let accountBalanceHeader = response.response?.allHeaderFields["Nexosis-Account-Balance"] as? String {
+        if let accountBalanceHeader = response.headers["Nexosis-Account-Balance"] {
 
           let parts = accountBalanceHeader.components(separatedBy: " ")
           result.amount = Double(parts.first ?? "") ?? 0.0
           result.currency = parts.last ?? ""
         }
-
+        
         completion(result)
+      },
+      failure: { error in
       }
+    )
   }
-
 }
 
 public struct AccountBalance {
