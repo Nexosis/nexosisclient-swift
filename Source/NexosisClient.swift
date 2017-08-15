@@ -1,5 +1,5 @@
+import PromiseKit
 import Alamofire
-import Foundation
 
 public class NexosisClient {
 
@@ -11,30 +11,36 @@ public class NexosisClient {
     self.baseUrl = baseUrl
   }
 
-  func fetchAccountBalance(completion: @escaping (AccountBalance) -> Void) {
+  func fetchAccountBalance() -> Promise<AccountBalance> {
 
     let requester = RestRequester()
     let url = "\(baseUrl)/data?page=0&pageSize=1"
-    let headers = [ "api-key": apiKey ]
+    let headers = [ "api-key" : apiKey ]
     let request = RestRequest(url: url, method: .get, headers: headers, body: [:])
 
-    requester.request( request,
-      success: { response in
-        var result = AccountBalance(amount: 0.0, currency: "")
+    return requester
+      .request(request)
+      .then { response in
 
         if let accountBalanceHeader = response.headers["Nexosis-Account-Balance"] {
-
           let parts = accountBalanceHeader.components(separatedBy: " ")
-          result.amount = Double(parts.first ?? "") ?? 0.0
-          result.currency = parts.last ?? ""
+
+          let result = AccountBalance(
+            amount: Double(parts.first ?? "") ?? 0.0,
+            currency: parts.last ?? ""
+          )
+
+          return Promise<AccountBalance>(value: result)
         }
-        
-        completion(result)
-      },
-      failure: { error in
+
+        throw NexosisClientError.parsingError
+
       }
-    )
   }
+}
+
+public enum NexosisClientError: Error {
+  case parsingError
 }
 
 public struct AccountBalance {

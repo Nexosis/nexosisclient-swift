@@ -1,3 +1,4 @@
+import PromiseKit
 import Alamofire
 
 internal typealias RestSuccessHandler = (RestResponse) -> Void
@@ -18,32 +19,19 @@ internal struct RestResponse {
 
 internal class RestRequester {
 
-  func request(_ request: RestRequest, success: @escaping RestSuccessHandler, failure: @escaping RestFailureHandler) {
-    Alamofire
+  func request(_ request: RestRequest) -> Promise<RestResponse> {
+
+    return Alamofire
       .request(request.url, method: request.method, headers: request.headers)
       .validate(contentType: ["application/json"])
-      .responseJSON { self.handleResponse($0, success: success, failure: failure) }
-  }
+      .responseJSON(with: .response)
+      .then { value, response in
+        let statusCode = response.response?.statusCode ?? 500
+        let headers = self.headersToString(headers: response.response?.allHeaderFields ?? [:])
+        let restResponse = RestResponse(statusCode: statusCode, headers: headers, body: value)
 
-  private func handleResponse(_ response: DataResponse<Any>, success: @escaping RestSuccessHandler, failure: RestFailureHandler) {
-    switch response.result {
-      case .success:
-        self.handleSuccess(response, success: success)
-      case .failure(let error):
-        self.handleFailure(error, failure: failure)
-    }
-  }
-
-  private func handleSuccess(_ response: DataResponse<Any>, success: RestSuccessHandler) {
-    let statusCode = response.response?.statusCode ?? 500
-    let headers = headersToString(headers: response.response?.allHeaderFields ?? [:])
-    let body = response.result.value ?? [:]
-
-    success(RestResponse(statusCode: statusCode, headers: headers, body: body))
-  }
-
-  private func handleFailure(_ error: Error, failure: RestFailureHandler) {
-    failure(error)
+        return Promise<RestResponse>(value: restResponse)
+      }
   }
 
   private func headersToString(headers: [AnyHashable: Any]) -> [String:String] {

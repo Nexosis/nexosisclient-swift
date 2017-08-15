@@ -5,6 +5,7 @@ use_frameworks!
 target 'NexosisApiClientiOS' do
   pod 'Alamofire', '~> 4.4'
   pod 'PromiseKit', '~> 4.3.2'
+  pod 'PromiseKit/Alamofire', '~> 4.3.2'
 
   target 'NexosisApiClientiOSTests' do
     inherit! :search_paths
@@ -18,6 +19,7 @@ end
 target 'NexosisApiClientMacOS' do
   pod 'Alamofire', '~> 4.4'
   pod 'PromiseKit', '~> 4.3.2'
+  pod 'PromiseKit/Alamofire', '~> 4.3.2'
 
   target 'NexosisApiClientMacOSTests' do
     inherit! :search_paths
@@ -31,6 +33,7 @@ end
 target 'NexosisApiClientTvOS' do
   pod 'Alamofire', '~> 4.4'
   pod 'PromiseKit', '~> 4.3.2'
+  pod 'PromiseKit/Alamofire', '~> 4.3.2'
 
   target 'NexosisApiClientTvOSTests' do
     inherit! :search_paths
@@ -44,4 +47,5 @@ end
 target 'NexosisApiClientWatchOS' do
   pod 'Alamofire', '~> 4.4'
   pod 'PromiseKit', '~> 4.3.2'
+  pod 'PromiseKit/Alamofire', '~> 4.3.2'
 end

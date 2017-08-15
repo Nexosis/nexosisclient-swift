@@ -17,24 +17,27 @@ class NexosisClientSpec: QuickSpec {
 
         describe("fetch account balance") {
 
-          var accountBalance: AccountBalance!
+          var accountBalance: AccountBalance?
 
           beforeEach {
-            let expectation = self.expectation(description: "Alamofire")
-            subject.fetchAccountBalance { balance in
-              expectation.fulfill()
-              accountBalance = balance
-            }
 
-            self.waitForExpectations(timeout: 10.0, handler: nil)
+            waitUntil { done in
+              subject
+                .fetchAccountBalance()
+                .then { balance -> Void in
+                  accountBalance = balance
+                  done()
+                }
+                .catch { error in print(error) }
+            }
           }
 
           it("fetches the account balance") {
-            expect(accountBalance.amount).to(equal(100041.09))
+            expect(accountBalance?.amount).to(equal(100041.09))
           }
 
           it("fetches the currency type") {
-            expect(accountBalance.currency).to(equal("USD"))
+            expect(accountBalance?.currency).to(equal("USD"))
           }
 
         }
