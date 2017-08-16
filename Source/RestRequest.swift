@@ -1,9 +1,6 @@
 import PromiseKit
 import Alamofire
 
-internal typealias RestSuccessHandler = (RestResponse) -> Void
-internal typealias RestFailureHandler = (Error) -> Void
-
 internal struct RestRequest {
   var url: String
   var method: HTTPMethod
@@ -17,7 +14,13 @@ internal struct RestResponse {
   var body: Any
 }
 
-internal class RestRequester {
+internal protocol RestRequester {
+  func request(_ request: RestRequest) -> Promise<RestResponse>
+}
+
+internal class SimpleRestRequester: RestRequester {
+
+  static let shared = SimpleRestRequester()
 
   func request(_ request: RestRequest) -> Promise<RestResponse> {
 
