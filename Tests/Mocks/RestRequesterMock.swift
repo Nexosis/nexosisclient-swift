@@ -1,12 +1,20 @@
-import Moxie
 import PromiseKit
 
-class MockRestRequester: Mock, RestRequester {
-  var moxie = Moxie()
+@testable import NexosisApiClientiOS
+
+class MockRestRequester: RestRequester {
+
+  private var stubbedResponse: Promise<RestResponse>!
+
+  var requestParameter: RestRequest?
+
+  func stubRequest(response: RestResponse) {
+    stubbedResponse = Promise<RestResponse>(value: response)
+  }
 
   func request(_ request: RestRequest) -> Promise<RestResponse> {
-    record(function: "request", wasCalledWith: [request])
-    return value(forFunction: "request", whenCalledWith: [request])!
+    requestParameter = request
+    return stubbedResponse;
   }
 
 }

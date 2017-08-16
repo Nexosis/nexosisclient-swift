@@ -17,7 +17,7 @@ public class NexosisClient {
 
     let url = "\(baseUrl)/data?page=0&pageSize=1"
     let headers = [ "api-key" : apiKey ]
-    let request = RestRequest(url: url, method: .get, headers: headers, body: [:])
+    let request = RestRequest(url: url, method: "GET", headers: headers, body: [:])
 
     return restRequester
       .request(request)

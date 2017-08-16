@@ -2,13 +2,28 @@ import PromiseKit
 import Alamofire
 
 internal struct RestRequest {
+
+  init(url: String, method: String = "GET", headers: [String : String] = [:], body: [String : Any] = [:]) {
+    self.url = url
+    self.method = method
+    self.headers = headers
+    self.body = body
+  }
+
   var url: String
-  var method: HTTPMethod
+  var method: String
   var headers: [String : String]
   var body: [String : Any]
 }
 
 internal struct RestResponse {
+
+  init(statusCode: Int, headers: [String : String] = [:], body: Any = [:]) {
+    self.statusCode = statusCode
+    self.headers = headers
+    self.body = body
+  }
+
   var statusCode: Int
   var headers: [String : String]
   var body: Any
@@ -24,8 +39,10 @@ internal class SimpleRestRequester: RestRequester {
 
   func request(_ request: RestRequest) -> Promise<RestResponse> {
 
+    let method = HTTPMethod(rawValue: request.method) ?? HTTPMethod.get
+
     return Alamofire
-      .request(request.url, method: request.method, headers: request.headers)
+      .request(request.url, method: method, headers: request.headers)
       .validate(contentType: ["application/json"])
       .responseJSON(with: .response)
       .then { value, response in

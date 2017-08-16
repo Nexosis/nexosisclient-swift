@@ -21,12 +21,6 @@
 		E4186BBE1F43CF9900691E90 /* RestRequesterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4186BBD1F43CF9900691E90 /* RestRequesterMock.swift */; };
 		E4186BBF1F43CF9900691E90 /* RestRequesterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4186BBD1F43CF9900691E90 /* RestRequesterMock.swift */; };
 		E4186BC01F43CF9900691E90 /* RestRequesterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4186BBD1F43CF9900691E90 /* RestRequesterMock.swift */; };
-		E4186BC11F43D39700691E90 /* NexosisClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DB0E1E1F3D0B7A0038DF5C /* NexosisClient.swift */; };
-		E4186BC21F43D39700691E90 /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */; };
-		E4186BC31F43D39700691E90 /* NexosisClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DB0E1E1F3D0B7A0038DF5C /* NexosisClient.swift */; };
-		E4186BC41F43D39700691E90 /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */; };
-		E4186BC51F43D39800691E90 /* NexosisClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DB0E1E1F3D0B7A0038DF5C /* NexosisClient.swift */; };
-		E4186BC61F43D39800691E90 /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */; };
 		E4419CE81F3F1E9A00F61DBF /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */; };
 		E4419CE91F3F1E9A00F61DBF /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */; };
 		E4419CEA1F3F1E9A00F61DBF /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */; };
@@ -964,8 +958,6 @@
 			files = (
 				E404F3911F3E28B90086EF40 /* NexosisClientSpec.swift in Sources */,
 				E4186BBE1F43CF9900691E90 /* RestRequesterMock.swift in Sources */,
-				E4186BC11F43D39700691E90 /* NexosisClient.swift in Sources */,
-				E4186BC21F43D39700691E90 /* RestRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,8 +976,6 @@
 			files = (
 				E404F3921F3E28BA0086EF40 /* NexosisClientSpec.swift in Sources */,
 				E4186BBF1F43CF9900691E90 /* RestRequesterMock.swift in Sources */,
-				E4186BC31F43D39700691E90 /* NexosisClient.swift in Sources */,
-				E4186BC41F43D39700691E90 /* RestRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1004,8 +994,6 @@
 			files = (
 				E404F3931F3E28BB0086EF40 /* NexosisClientSpec.swift in Sources */,
 				E4186BC01F43CF9900691E90 /* RestRequesterMock.swift in Sources */,
-				E4186BC51F43D39800691E90 /* NexosisClient.swift in Sources */,
-				E4186BC61F43D39800691E90 /* RestRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
