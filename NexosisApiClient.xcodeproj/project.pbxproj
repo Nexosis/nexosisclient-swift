@@ -212,6 +212,22 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		E4D2087D1F4B6374000659F7 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Unit;
+			sourceTree = "<group>";
+		};
+		E4D2087E1F4B637F000659F7 /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC37E21F3E1CF9007C6CC5 /* NexosisClientSpec.swift */,
+				E4227B4B1F45082C00EF02FC /* DatasetListSpec.swift */,
+			);
+			path = Integration;
+			sourceTree = "<group>";
+		};
 		E4DB0D971F3CDF790038DF5C = {
 			isa = PBXGroup;
 			children = (
@@ -318,8 +334,8 @@
 			isa = PBXGroup;
 			children = (
 				E4186BBC1F43CF4900691E90 /* Mocks */,
-				E4AC37E21F3E1CF9007C6CC5 /* NexosisClientSpec.swift */,
-				E4227B4B1F45082C00EF02FC /* DatasetListSpec.swift */,
+				E4D2087E1F4B637F000659F7 /* Integration */,
+				E4D2087D1F4B6374000659F7 /* Unit */,
 				E4227B501F450A1A00EF02FC /* SpecHelper.swift */,
 			);
 			path = Tests;
