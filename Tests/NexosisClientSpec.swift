@@ -6,7 +6,7 @@ import PromiseKit
 
 class NexosisClientSpec: QuickSpec {
   override func spec() {
-    describe("NexosisClientApi") {
+    describe("NexosisClient") {
 
       var subject: NexosisClient!
       var mockRestRequester: MockRestRequester!
@@ -14,10 +14,7 @@ class NexosisClientSpec: QuickSpec {
       context("when created") {
 
         beforeEach {
-          mockRestRequester = MockRestRequester()
-
-          subject = NexosisClient(apiKey: "f3f040dfa88a4180a33ba16e1090242b", baseUrl: "https://api.uat.nexosisdev.com/v1")
-          subject.restRequester = mockRestRequester
+          subject = SpecHelper.Client()
         }
 
         describe("fetch account balance") {
@@ -27,7 +24,8 @@ class NexosisClientSpec: QuickSpec {
           beforeEach {
             stubbedResponse = RestResponse(
               statusCode: 200,
-              headers: ["Nexosis-Account-Balance" : "12345.67 USD"]            )
+              headers: ["nexosis-account-balance" : "12345.67 USD"]
+            )
           }
 
           context("when it returns a result with an account balance header") {
@@ -37,7 +35,9 @@ class NexosisClientSpec: QuickSpec {
 
             beforeEach {
 
+              mockRestRequester = MockRestRequester()
               mockRestRequester.stubRequest(response: stubbedResponse)
+              RestRequester.shared = mockRestRequester
 
               waitUntil { done in
                 subject
@@ -53,12 +53,12 @@ class NexosisClientSpec: QuickSpec {
 
             describe("rest request") {
               it("calls the expected url and method") {
-                expect(actualRequest?.url).to(equal("https://api.uat.nexosisdev.com/v1/data?page=0&pageSize=1"));
+                expect(actualRequest?.url).to(equal(SpecHelper.BaseUrl(tail: "/data?page=0&pageSize=1")));
                 expect(actualRequest?.method).to(equal("GET"));
               }
 
               it("includes the api key") {
-                expect(actualRequest?.headers["api-key"]).to(equal("f3f040dfa88a4180a33ba16e1090242b"))
+                expect(actualRequest?.headers["api-key"]).to(equal(SpecHelper.ApiKey))
               }
 
               it("has no body") {
@@ -86,7 +86,9 @@ class NexosisClientSpec: QuickSpec {
 
               stubbedResponse.headers = [:]
 
+              mockRestRequester = MockRestRequester()
               mockRestRequester.stubRequest(response: stubbedResponse)
+              RestRequester.shared = mockRestRequester
 
               waitUntil { done in
                 subject
@@ -101,12 +103,12 @@ class NexosisClientSpec: QuickSpec {
 
             describe("rest request") {
               it("calls the expected url and method") {
-                expect(actualRequest?.url).to(equal("https://api.uat.nexosisdev.com/v1/data?page=0&pageSize=1"));
+                expect(actualRequest?.url).to(equal(SpecHelper.BaseUrl(tail: "/data?page=0&pageSize=1")));
                 expect(actualRequest?.method).to(equal("GET"));
               }
 
               it("includes the api key") {
-                expect(actualRequest?.headers["api-key"]).to(equal("f3f040dfa88a4180a33ba16e1090242b"))
+                expect(actualRequest?.headers["api-key"]).to(equal(SpecHelper.ApiKey))
               }
 
               it("has no body") {

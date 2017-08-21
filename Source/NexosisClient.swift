@@ -1,17 +1,21 @@
 import PromiseKit
 import Alamofire
 
-public class NexosisClient {
+public class ApiClient {
 
-  private let apiKey: String
-  private let baseUrl: String
-
-  var restRequester: RestRequester = SimpleRestRequester.shared
+  let apiKey: String
+  let baseUrl: String
 
   init(apiKey: String, baseUrl: String = "https://ml.nexosis.com/v1") {
     self.apiKey = apiKey
     self.baseUrl = baseUrl
   }
+
+}
+
+public class NexosisClient: ApiClient {
+
+  private var datasetClient: DatasetClient?
 
   func fetchAccountBalance() -> Promise<AccountBalance> {
 
@@ -19,25 +23,49 @@ public class NexosisClient {
     let headers = [ "api-key" : apiKey ]
     let request = RestRequest(url: url, method: "GET", headers: headers, body: [:])
 
-    return restRequester
+    return RestRequester.shared
       .request(request)
       .then { response in
 
-        if let accountBalanceHeader = response.headers["Nexosis-Account-Balance"] {
-          let parts = accountBalanceHeader.components(separatedBy: " ")
-
-          let result = AccountBalance(
-            amount: Double(parts.first ?? "") ?? 0.0,
-            currency: parts.last ?? ""
-          )
-
-          return Promise<AccountBalance>(value: result)
+        if let accountBalanceHeader = response.headers["nexosis-account-balance"] {
+          return Promise<AccountBalance>(value: AccountBalance(data: accountBalanceHeader))
         }
 
         throw NexosisClientError.parsingError
 
       }
   }
+
+  var datasets: DatasetClient {
+    if datasetClient == nil {
+      datasetClient = DatasetClient(apiKey: apiKey, baseUrl: baseUrl)
+    }
+    return datasetClient!
+  }
+
+}
+
+public class DatasetClient: ApiClient {
+
+  func list() -> Promise<[DatasetSummary]> {
+
+    let url = "\(baseUrl)/data"
+    let headers = [ "api-key" : apiKey ]
+    let request = RestRequest(url: url, method: "GET", headers: headers, body: [:])
+
+    return RestRequester.shared
+      .request(request)
+      .then { response in
+
+        let datasets = response.body["items"] as? [Any] ?? []
+
+        let result = datasets.map { dataset in
+          return DatasetSummary(data: dataset as? [String: Any] ?? [:])
+        }
+        return Promise<[DatasetSummary]>(value: result)
+      }
+  }
+
 }
 
 public enum NexosisClientError: Error, Equatable {
@@ -51,9 +79,4 @@ public func == (lhs: NexosisClientError, rhs: NexosisClientError) -> Bool {
     case (.someOtherError, .someOtherError): return true
     case (_, _): return false
   }
-}
-
-public struct AccountBalance {
-  var amount: Double
-  var currency: String
 }

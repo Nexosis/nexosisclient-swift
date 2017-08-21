@@ -12,7 +12,7 @@ class MockRestRequester: RestRequester {
     stubbedResponse = Promise<RestResponse>(value: response)
   }
 
-  func request(_ request: RestRequest) -> Promise<RestResponse> {
+  override func request(_ request: RestRequest) -> Promise<RestResponse> {
     requestParameter = request
     return stubbedResponse;
   }

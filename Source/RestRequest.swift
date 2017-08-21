@@ -18,7 +18,7 @@ internal struct RestRequest {
 
 internal struct RestResponse {
 
-  init(statusCode: Int, headers: [String : String] = [:], body: Any = [:]) {
+  init(statusCode: Int, headers: [String : String] = [:], body: [String : Any] = [:]) {
     self.statusCode = statusCode
     self.headers = headers
     self.body = body
@@ -26,16 +26,12 @@ internal struct RestResponse {
 
   var statusCode: Int
   var headers: [String : String]
-  var body: Any
+  var body: [String: Any]
 }
 
-internal protocol RestRequester {
-  func request(_ request: RestRequest) -> Promise<RestResponse>
-}
+internal class RestRequester {
 
-internal class SimpleRestRequester: RestRequester {
-
-  static let shared = SimpleRestRequester()
+  static var shared: RestRequester = RestRequester()
 
   func request(_ request: RestRequest) -> Promise<RestResponse> {
 
@@ -48,7 +44,7 @@ internal class SimpleRestRequester: RestRequester {
       .then { value, response in
         let statusCode = response.response?.statusCode ?? 500
         let headers = self.headersToString(headers: response.response?.allHeaderFields ?? [:])
-        let restResponse = RestResponse(statusCode: statusCode, headers: headers, body: value)
+        let restResponse = RestResponse(statusCode: statusCode, headers: headers, body: value as? [String: Any] ?? [:])
 
         return Promise<RestResponse>(value: restResponse)
       }
@@ -57,7 +53,9 @@ internal class SimpleRestRequester: RestRequester {
   private func headersToString(headers: [AnyHashable: Any]) -> [String:String] {
     var result: [String: String] = [:]
     for (key, value) in headers {
-      result[key as? String ?? ""] = value as? String ?? ""
+      let key = (key as? String ?? "").lowercased()
+      let value = value as? String ?? ""
+      result[key] = value
     }
     return result
   }
