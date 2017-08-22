@@ -11,13 +11,7 @@ public class DatasetClient: ApiClient {
   }
 
   private func list(parameters: [String : String]) -> Promise<[DatasetSummary]> {
-
-    let url = "\(baseUrl)/data"
-    let headers = ["api-key" : apiKey, "api-client-id" : apiClientId]
-    let request = RestRequest(url: url, method: "GET", parameters: parameters, headers: headers)
-
-    return RestRequester.shared
-      .request(request)
+    return makeGetRequest(urlPath: "/data", parameters: parameters)
       .then { self.processResponse(response: $0) }
   }
 

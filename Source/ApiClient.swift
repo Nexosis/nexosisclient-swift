@@ -10,6 +10,15 @@ public class ApiClient {
     self.apiKey = apiKey
     self.baseUrl = baseUrl
   }
+
+  func makeGetRequest(urlPath: String, parameters: [String : String]) -> Promise<RestResponse> {
+
+    let url = "\(baseUrl)\(urlPath)"
+    let headers = ["api-key" : apiKey, "api-client-id" : apiClientId]
+    let request = RestRequest(url: url, method: "GET", parameters: parameters, headers: headers)
+
+    return RestRequester.shared.request(request)
+  }
 }
 
 public enum NexosisClientError: Error, Equatable {
@@ -18,8 +27,8 @@ public enum NexosisClientError: Error, Equatable {
 
 public func == (lhs: NexosisClientError, rhs: NexosisClientError) -> Bool {
   switch (lhs, rhs) {
-  case (.generalError, .generalError): return true
-  case (.parsingError, .parsingError): return true
-  case (_, _): return false
+    case (.generalError, .generalError): return true
+    case (.parsingError, .parsingError): return true
+    case (_, _): return false
   }
 }
