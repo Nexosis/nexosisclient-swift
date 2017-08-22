@@ -56,6 +56,10 @@
 		E4D208971F4B8232000659F7 /* AccountBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D208951F4B8232000659F7 /* AccountBalance.swift */; };
 		E4D208981F4B8232000659F7 /* AccountBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D208951F4B8232000659F7 /* AccountBalance.swift */; };
 		E4D208991F4B8232000659F7 /* AccountBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D208951F4B8232000659F7 /* AccountBalance.swift */; };
+		E4D2089C1F4BAEA1000659F7 /* NexosisRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2089B1F4BAEA1000659F7 /* NexosisRequester.swift */; };
+		E4D2089D1F4BAEA1000659F7 /* NexosisRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2089B1F4BAEA1000659F7 /* NexosisRequester.swift */; };
+		E4D2089E1F4BAEA1000659F7 /* NexosisRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2089B1F4BAEA1000659F7 /* NexosisRequester.swift */; };
+		E4D2089F1F4BAEA1000659F7 /* NexosisRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2089B1F4BAEA1000659F7 /* NexosisRequester.swift */; };
 		E4DB0DC91F3CE0DA0038DF5C /* NexosisApiClientiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DB0DC01F3CE0DA0038DF5C /* NexosisApiClientiOS.framework */; };
 		E4DB0DE51F3CE0F30038DF5C /* NexosisApiClientMacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DB0DDC1F3CE0F30038DF5C /* NexosisApiClientMacOS.framework */; };
 		E4DB0E011F3CE1070038DF5C /* NexosisApiClientTvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DB0DF81F3CE1060038DF5C /* NexosisApiClientTvOS.framework */; };
@@ -124,6 +128,7 @@
 		E4D208881F4B8133000659F7 /* DatasetClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasetClient.swift; sourceTree = "<group>"; };
 		E4D208901F4B81C1000659F7 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		E4D208951F4B8232000659F7 /* AccountBalance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountBalance.swift; sourceTree = "<group>"; };
+		E4D2089B1F4BAEA1000659F7 /* NexosisRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NexosisRequester.swift; sourceTree = "<group>"; };
 		E4DB0DC01F3CE0DA0038DF5C /* NexosisApiClientiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NexosisApiClientiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4DB0DC31F3CE0DA0038DF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4DB0DC81F3CE0DA0038DF5C /* NexosisApiClientiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NexosisApiClientiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,6 +267,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E4D2089A1F4BAE0C000659F7 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */,
+				E4D2089B1F4BAEA1000659F7 /* NexosisRequester.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
 		E4DB0D971F3CDF790038DF5C = {
 			isa = PBXGroup;
 			children = (
@@ -358,10 +372,10 @@
 			isa = PBXGroup;
 			children = (
 				E4D208871F4B8009000659F7 /* Models */,
+				E4D2089A1F4BAE0C000659F7 /* Adapters */,
 				E4D208901F4B81C1000659F7 /* ApiClient.swift */,
 				E4DB0E1E1F3D0B7A0038DF5C /* NexosisClient.swift */,
 				E4D208881F4B8133000659F7 /* DatasetClient.swift */,
-				E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1016,6 +1030,7 @@
 				E4D208911F4B81C1000659F7 /* ApiClient.swift in Sources */,
 				E48DCE731F3DF4FC00AD5BB6 /* README.md in Sources */,
 				E4D208961F4B8232000659F7 /* AccountBalance.swift in Sources */,
+				E4D2089C1F4BAEA1000659F7 /* NexosisRequester.swift in Sources */,
 				E4D2088C1F4B8167000659F7 /* DatasetClient.swift in Sources */,
 				E48DCE711F3DF4FC00AD5BB6 /* LICENSE.md in Sources */,
 				E4DB0E1F1F3D0B7A0038DF5C /* NexosisClient.swift in Sources */,
@@ -1043,6 +1058,7 @@
 			files = (
 				E40434781F4797ED004E7873 /* DatasetSummary.swift in Sources */,
 				E4DB0E201F3D0B7A0038DF5C /* NexosisClient.swift in Sources */,
+				E4D2089D1F4BAEA1000659F7 /* NexosisRequester.swift in Sources */,
 				E4419CE91F3F1E9A00F61DBF /* RestRequest.swift in Sources */,
 				E4D2088D1F4B8168000659F7 /* DatasetClient.swift in Sources */,
 				E4D208971F4B8232000659F7 /* AccountBalance.swift in Sources */,
@@ -1069,6 +1085,7 @@
 			files = (
 				E40434791F4797ED004E7873 /* DatasetSummary.swift in Sources */,
 				E4DB0E211F3D0B7A0038DF5C /* NexosisClient.swift in Sources */,
+				E4D2089E1F4BAEA1000659F7 /* NexosisRequester.swift in Sources */,
 				E4419CEA1F3F1E9A00F61DBF /* RestRequest.swift in Sources */,
 				E4D2088E1F4B8169000659F7 /* DatasetClient.swift in Sources */,
 				E4D208981F4B8232000659F7 /* AccountBalance.swift in Sources */,
@@ -1095,6 +1112,7 @@
 			files = (
 				E404347A1F4797ED004E7873 /* DatasetSummary.swift in Sources */,
 				E4DB0E221F3D0B7A0038DF5C /* NexosisClient.swift in Sources */,
+				E4D2089F1F4BAEA1000659F7 /* NexosisRequester.swift in Sources */,
 				E4419CEB1F3F1E9A00F61DBF /* RestRequest.swift in Sources */,
 				E4D2088F1F4B816A000659F7 /* DatasetClient.swift in Sources */,
 				E4D208991F4B8232000659F7 /* AccountBalance.swift in Sources */,
