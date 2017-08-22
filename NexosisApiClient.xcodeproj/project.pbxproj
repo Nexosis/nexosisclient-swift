@@ -31,10 +31,10 @@
 		E4227B511F450A1A00EF02FC /* SpecHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4227B501F450A1A00EF02FC /* SpecHelper.swift */; };
 		E4227B521F450A1A00EF02FC /* SpecHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4227B501F450A1A00EF02FC /* SpecHelper.swift */; };
 		E4227B531F450A1A00EF02FC /* SpecHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4227B501F450A1A00EF02FC /* SpecHelper.swift */; };
-		E4419CE81F3F1E9A00F61DBF /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */; };
-		E4419CE91F3F1E9A00F61DBF /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */; };
-		E4419CEA1F3F1E9A00F61DBF /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */; };
-		E4419CEB1F3F1E9A00F61DBF /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */; };
+		E4419CE81F3F1E9A00F61DBF /* RestRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequester.swift */; };
+		E4419CE91F3F1E9A00F61DBF /* RestRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequester.swift */; };
+		E4419CEA1F3F1E9A00F61DBF /* RestRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequester.swift */; };
+		E4419CEB1F3F1E9A00F61DBF /* RestRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4419CE71F3F1E9A00F61DBF /* RestRequester.swift */; };
 		E48DCE711F3DF4FC00AD5BB6 /* LICENSE.md in Sources */ = {isa = PBXBuildFile; fileRef = E48DCE6E1F3DF4FC00AD5BB6 /* LICENSE.md */; };
 		E48DCE721F3DF4FC00AD5BB6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E48DCE6F1F3DF4FC00AD5BB6 /* Podfile */; };
 		E48DCE731F3DF4FC00AD5BB6 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E48DCE701F3DF4FC00AD5BB6 /* README.md */; };
@@ -118,7 +118,7 @@
 		E4186BBD1F43CF9900691E90 /* RestRequesterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRequesterMock.swift; sourceTree = "<group>"; };
 		E4227B4B1F45082C00EF02FC /* DatasetListSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasetListSpec.swift; sourceTree = "<group>"; };
 		E4227B501F450A1A00EF02FC /* SpecHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecHelper.swift; sourceTree = "<group>"; };
-		E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRequest.swift; sourceTree = "<group>"; };
+		E4419CE71F3F1E9A00F61DBF /* RestRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRequester.swift; sourceTree = "<group>"; };
 		E48DCE6E1F3DF4FC00AD5BB6 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		E48DCE6F1F3DF4FC00AD5BB6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E48DCE701F3DF4FC00AD5BB6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -270,8 +270,8 @@
 		E4D2089A1F4BAE0C000659F7 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
-				E4419CE71F3F1E9A00F61DBF /* RestRequest.swift */,
 				E4D2089B1F4BAEA1000659F7 /* NexosisRequester.swift */,
+				E4419CE71F3F1E9A00F61DBF /* RestRequester.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -1034,7 +1034,7 @@
 				E4D2088C1F4B8167000659F7 /* DatasetClient.swift in Sources */,
 				E48DCE711F3DF4FC00AD5BB6 /* LICENSE.md in Sources */,
 				E4DB0E1F1F3D0B7A0038DF5C /* NexosisClient.swift in Sources */,
-				E4419CE81F3F1E9A00F61DBF /* RestRequest.swift in Sources */,
+				E4419CE81F3F1E9A00F61DBF /* RestRequester.swift in Sources */,
 				E40434771F4797ED004E7873 /* DatasetSummary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1059,7 +1059,7 @@
 				E40434781F4797ED004E7873 /* DatasetSummary.swift in Sources */,
 				E4DB0E201F3D0B7A0038DF5C /* NexosisClient.swift in Sources */,
 				E4D2089D1F4BAEA1000659F7 /* NexosisRequester.swift in Sources */,
-				E4419CE91F3F1E9A00F61DBF /* RestRequest.swift in Sources */,
+				E4419CE91F3F1E9A00F61DBF /* RestRequester.swift in Sources */,
 				E4D2088D1F4B8168000659F7 /* DatasetClient.swift in Sources */,
 				E4D208971F4B8232000659F7 /* AccountBalance.swift in Sources */,
 				E4D208921F4B81C1000659F7 /* ApiClient.swift in Sources */,
@@ -1086,7 +1086,7 @@
 				E40434791F4797ED004E7873 /* DatasetSummary.swift in Sources */,
 				E4DB0E211F3D0B7A0038DF5C /* NexosisClient.swift in Sources */,
 				E4D2089E1F4BAEA1000659F7 /* NexosisRequester.swift in Sources */,
-				E4419CEA1F3F1E9A00F61DBF /* RestRequest.swift in Sources */,
+				E4419CEA1F3F1E9A00F61DBF /* RestRequester.swift in Sources */,
 				E4D2088E1F4B8169000659F7 /* DatasetClient.swift in Sources */,
 				E4D208981F4B8232000659F7 /* AccountBalance.swift in Sources */,
 				E4D208931F4B81C1000659F7 /* ApiClient.swift in Sources */,
@@ -1113,7 +1113,7 @@
 				E404347A1F4797ED004E7873 /* DatasetSummary.swift in Sources */,
 				E4DB0E221F3D0B7A0038DF5C /* NexosisClient.swift in Sources */,
 				E4D2089F1F4BAEA1000659F7 /* NexosisRequester.swift in Sources */,
-				E4419CEB1F3F1E9A00F61DBF /* RestRequest.swift in Sources */,
+				E4419CEB1F3F1E9A00F61DBF /* RestRequester.swift in Sources */,
 				E4D2088F1F4B816A000659F7 /* DatasetClient.swift in Sources */,
 				E4D208991F4B8232000659F7 /* AccountBalance.swift in Sources */,
 				E4D208941F4B81C1000659F7 /* ApiClient.swift in Sources */,

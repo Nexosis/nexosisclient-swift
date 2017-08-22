@@ -2,22 +2,14 @@ import PromiseKit
 
 public class ApiClient {
 
-  let apiClientId = "Swift/v1.0.0"
   let apiKey: String
   let baseUrl: String
+  let requester: NexosisRequester
 
   init(apiKey: String, baseUrl: String = "https://ml.nexosis.com/v1") {
     self.apiKey = apiKey
     self.baseUrl = baseUrl
-  }
-
-  func makeGetRequest(urlPath: String, parameters: [String : String]) -> Promise<RestResponse> {
-
-    let url = "\(baseUrl)\(urlPath)"
-    let headers = ["api-key" : apiKey, "api-client-id" : apiClientId]
-    let request = RestRequest(url: url, method: "GET", parameters: parameters, headers: headers)
-
-    return RestRequester.shared.request(request)
+    self.requester = NexosisRequester(apiKey: apiKey, baseUrl: baseUrl)
   }
 }
 

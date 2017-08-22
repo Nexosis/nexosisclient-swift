@@ -11,7 +11,8 @@ public class DatasetClient: ApiClient {
   }
 
   private func list(parameters: [String : String]) -> Promise<[DatasetSummary]> {
-    return makeGetRequest(urlPath: "/data", parameters: parameters)
+    return requester
+      .get(urlPath: "/data", parameters: parameters)
       .then { self.processResponse(response: $0) }
   }
 

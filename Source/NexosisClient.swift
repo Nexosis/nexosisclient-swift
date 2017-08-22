@@ -13,13 +13,8 @@ public class NexosisClient: ApiClient {
 
   func fetchAccountBalance() -> Promise<AccountBalance> {
 
-    let url = "\(baseUrl)/data"
-    let parameters = ["page" : "0", "pageSize" : "1"]
-    let headers = ["api-key" : apiKey, "api-client-id" : apiClientId]
-    let request = RestRequest(url: url, method: "GET", parameters: parameters, headers: headers)
-
-    return RestRequester.shared
-      .request(request)
+    return requester
+      .get(urlPath: "/data", parameters: ["page" : "0", "pageSize" : "1"])
       .then { self.processResponse(response: $0) }
   }
 
