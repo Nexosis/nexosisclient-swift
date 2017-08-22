@@ -3,15 +3,17 @@ import Alamofire
 
 internal struct RestRequest {
 
-  init(url: String, method: String = "GET", headers: [String : String] = [:], body: [String : Any] = [:]) {
+  init(url: String, method: String = "GET", parameters: [String: String] = [:], headers: [String : String] = [:], body: [String : Any] = [:]) {
     self.url = url
     self.method = method
+    self.parameters = parameters
     self.headers = headers
     self.body = body
   }
 
   var url: String
   var method: String
+  var parameters: [String : String]
   var headers: [String : String]
   var body: [String : Any]
 }
@@ -38,7 +40,7 @@ internal class RestRequester {
     let method = HTTPMethod(rawValue: request.method) ?? HTTPMethod.get
 
     return Alamofire
-      .request(request.url, method: method, headers: request.headers)
+      .request(request.url, method: method, parameters: request.parameters, headers: request.headers)
       .validate(contentType: ["application/json"])
       .responseJSON(with: .response)
       .then { value, response in

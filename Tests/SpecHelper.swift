@@ -3,6 +3,7 @@
 struct SpecHelper {
 
   static let ApiKey = "BOGUS_API_KEY"
+  static let ApiClientId = "Swift/v1.0.0"
 
   static let BaseUrl = "http://bogus.nexosis.com"
   static func BaseUrl(tail: String) -> String {

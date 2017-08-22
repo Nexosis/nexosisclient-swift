@@ -2,6 +2,7 @@ import PromiseKit
 
 public class ApiClient {
 
+  let apiClientId = "Swift/v1.0.0"
   let apiKey: String
   let baseUrl: String
 
@@ -9,7 +10,6 @@ public class ApiClient {
     self.apiKey = apiKey
     self.baseUrl = baseUrl
   }
-  
 }
 
 public enum NexosisClientError: Error, Equatable {

@@ -53,12 +53,20 @@ class NexosisClientSpec: QuickSpec {
 
             describe("rest request") {
               it("calls the expected url and method") {
-                expect(actualRequest?.url).to(equal(SpecHelper.BaseUrl(tail: "/data?page=0&pageSize=1")));
+                expect(actualRequest?.url).to(equal(SpecHelper.BaseUrl(tail: "/data")));
                 expect(actualRequest?.method).to(equal("GET"));
               }
 
-              it("includes the api key") {
+              it("has the expected query parameters") {
+                expect(actualRequest?.parameters).to(haveCount(2))
+                expect(actualRequest?.parameters["page"]).to(equal("0"))
+                expect(actualRequest?.parameters["pageSize"]).to(equal("1"))
+              }
+
+              it("has the expected headers") {
+                expect(actualRequest?.headers).to(haveCount(2))
                 expect(actualRequest?.headers["api-key"]).to(equal(SpecHelper.ApiKey))
+                expect(actualRequest?.headers["api-client-id"]).to(equal(SpecHelper.ApiClientId))
               }
 
               it("has no body") {
@@ -80,7 +88,7 @@ class NexosisClientSpec: QuickSpec {
           context("when it returns a result without an account balance header") {
 
             var actualRequest: RestRequest?
-            var actualError: Error?
+            var actualAccountBalance: AccountBalance?
 
             beforeEach {
 
@@ -93,22 +101,31 @@ class NexosisClientSpec: QuickSpec {
               waitUntil { done in
                 subject
                   .fetchAccountBalance()
-                  .catch { error in
+                  .then { accountBalance -> Void in
                     actualRequest = mockRestRequester.requestParameter
-                    actualError = error
+                    actualAccountBalance = accountBalance
                     done()
-                }
+                  }
+                  .catch { error in print(error) }
               }
             }
 
             describe("rest request") {
               it("calls the expected url and method") {
-                expect(actualRequest?.url).to(equal(SpecHelper.BaseUrl(tail: "/data?page=0&pageSize=1")));
+                expect(actualRequest?.url).to(equal(SpecHelper.BaseUrl(tail: "/data")));
                 expect(actualRequest?.method).to(equal("GET"));
               }
 
-              it("includes the api key") {
+              it("has the expected query parameters") {
+                expect(actualRequest?.parameters).to(haveCount(2))
+                expect(actualRequest?.parameters["page"]).to(equal("0"))
+                expect(actualRequest?.parameters["pageSize"]).to(equal("1"))
+              }
+
+              it("has the expected headers") {
+                expect(actualRequest?.headers).to(haveCount(2))
                 expect(actualRequest?.headers["api-key"]).to(equal(SpecHelper.ApiKey))
+                expect(actualRequest?.headers["api-client-id"]).to(equal(SpecHelper.ApiClientId))
               }
 
               it("has no body") {
@@ -116,9 +133,13 @@ class NexosisClientSpec: QuickSpec {
               }
             }
 
-            describe("error") {
-              it("returns a parsing error") {
-                expect(actualError as? NexosisClientError).to(equal(NexosisClientError.parsingError))
+            describe("account balance") {
+              it("has an amount of 0.00") {
+                expect(actualAccountBalance?.amount).to(equal(0.00))
+              }
+
+              it("has an empty currency type") {
+                expect(actualAccountBalance?.currency).to(equal(""))
               }
             }
           }
