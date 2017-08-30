@@ -13,32 +13,31 @@ class DatasetClientSpec: QuickSpec {
 
       context("when created") {
 
-        var stubbedResponse: RestResponse!
-
         var actualUrlPath: String?
         var actualParameters: [String: String]?
         var actualDatasets: [DatasetSummary]!
 
         beforeEach {
-          stubbedResponse = RestResponse(
-            statusCode: 200,
-            body: [
-              "items": [
-                [ "dataSetName": "Sasquatch" ],
-                [ "dataSetName": "Chupacabra" ],
-                [ "dataSetName": "Mothman" ]
-              ]
-            ]
-          )
-
           mockNexosisRequester = MockNexosisRequester()
-          mockNexosisRequester.stubGet(response: stubbedResponse)
 
           subject = DatasetClient(apiKey: SpecHelper.ApiKey)
           subject.requester = mockNexosisRequester
         }
 
         describe("list") {
+
+          beforeEach {
+            mockNexosisRequester.stubGet(response: RestResponse(
+              statusCode: 200,
+              body: [
+                "items": [
+                  [ "dataSetName": "Sasquatch" ],
+                  [ "dataSetName": "Chupacabra" ],
+                  [ "dataSetName": "Mothman" ]
+                ]
+              ]
+            ))
+          }
 
           context("happy path") {
 

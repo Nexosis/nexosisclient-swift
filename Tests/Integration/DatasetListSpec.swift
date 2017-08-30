@@ -16,16 +16,7 @@ class DatasetListSpec: QuickSpec {
         var stubbedResponse: RestResponse!
 
         beforeEach {
-          stubbedResponse = RestResponse(
-            statusCode: 200,
-            body: [
-              "items": [
-                [ "dataSetName": "Sasquatch" ],
-                [ "dataSetName": "Chupacabra" ],
-                [ "dataSetName": "Mothman" ]
-              ]
-            ]
-          )
+          stubbedResponse = RestResponse(statusCode: 200)
 
           mockRestRequester = MockRestRequester()
           mockRestRequester.stubRequest(response: stubbedResponse)
