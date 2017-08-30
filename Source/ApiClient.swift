@@ -4,7 +4,7 @@ public class ApiClient {
 
   let apiKey: String
   let baseUrl: String
-  let requester: NexosisRequester
+  var requester: NexosisRequester
 
   init(apiKey: String, baseUrl: String = "https://ml.nexosis.com/v1") {
     self.apiKey = apiKey

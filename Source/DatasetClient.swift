@@ -2,11 +2,13 @@ import PromiseKit
 
 public class DatasetClient: ApiClient {
 
-  func list(partialName: String = "") -> Promise<[DatasetSummary]> {
+  func list(partialName: String = "", page: Int = 0, pageSize: Int = 1000) -> Promise<[DatasetSummary]> {
 
     var parameters: [String: String] = [:]
 
     if partialName != "" { parameters["partialName"] = partialName }
+    if page != 0 { parameters["page"] = String(page) }
+    if pageSize != 1000 { parameters["pageSize"] = String(pageSize) }
 
     return list(parameters: parameters)
   }
