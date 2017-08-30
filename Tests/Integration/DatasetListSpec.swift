@@ -15,7 +15,6 @@ class DatasetListSpec: QuickSpec {
 
         var stubbedResponse: RestResponse!
 
-
         beforeEach {
           stubbedResponse = RestResponse(
             statusCode: 200,

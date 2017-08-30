@@ -2,12 +2,13 @@ import PromiseKit
 
 public class DatasetClient: ApiClient {
 
-  func list() -> Promise<[DatasetSummary]> {
-    return list(parameters: [:])
-  }
+  func list(partialName: String = "") -> Promise<[DatasetSummary]> {
 
-  func list(partialName: String) -> Promise<[DatasetSummary]> {
-    return list(parameters: ["partialName" : partialName])
+    var parameters: [String: String] = [:]
+
+    if partialName != "" { parameters["partialName"] = partialName }
+
+    return list(parameters: parameters)
   }
 
   private func list(parameters: [String : String]) -> Promise<[DatasetSummary]> {

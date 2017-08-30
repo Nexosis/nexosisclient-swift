@@ -1,7 +1,7 @@
 import PromiseKit
 import Alamofire
 
-internal struct RestRequest {
+internal class RestRequest {
 
   init(url: String, method: String = "GET", parameters: [String: String] = [:], headers: [String : String] = [:], body: [String : Any] = [:]) {
     self.url = url
@@ -18,7 +18,7 @@ internal struct RestRequest {
   var body: [String : Any]
 }
 
-internal struct RestResponse {
+internal class RestResponse {
 
   init(statusCode: Int, headers: [String : String] = [:], body: [String : Any] = [:]) {
     self.statusCode = statusCode
