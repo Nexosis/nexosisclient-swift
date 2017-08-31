@@ -55,7 +55,7 @@ class NexosisRequesterSpec: QuickSpec {
               }
 
               it("has no query parameters") {
-                expect(actualRequest?.parameters).to(haveCount(0))
+                expect(actualRequest?.parameters).to(beEmpty())
               }
 
               it("has the expected headers") {
@@ -65,7 +65,7 @@ class NexosisRequesterSpec: QuickSpec {
               }
 
               it("has no body") {
-                expect(actualRequest?.body).to(haveCount(0))
+                expect(actualRequest?.body).to(beEmpty())
               }
             }
 
@@ -75,12 +75,16 @@ class NexosisRequesterSpec: QuickSpec {
 
           }
 
-          context("when getting with query paramenters") {
+          context("when getting with query parameters") {
 
             beforeEach {
               waitUntil { done in
                 subject
-                  .get(urlPath: "/some/url", parameters: ["name" : "Sasquatch", "quantity" : "42"])
+                  .get(urlPath: "/some/url", parameters: [
+                    QueryParameter(name: "name", value: "Sasquatch"),
+                    QueryParameter(name: "quantity", value: "42"),
+                    QueryParameter(name: "someArray", values: "foo", "bar", "baz")
+                  ])
                   .then { response -> Void in
                     actualRequest = mockRestRequester.requestParameter
                     actualResponse = response
@@ -96,10 +100,17 @@ class NexosisRequesterSpec: QuickSpec {
                 expect(actualRequest?.method).to(equal("GET"));
               }
 
-              it("has no query parameters") {
-                expect(actualRequest?.parameters).to(haveCount(2))
-                expect(actualRequest?.parameters["name"]).to(equal("Sasquatch"))
-                expect(actualRequest?.parameters["quantity"]).to(equal("42"))
+              it("has the expected number of query parameters") {
+                expect(actualRequest?.parameters).to(haveCount(3))
+              }
+
+              it("has the simple query parameters") {
+                expect(actualRequest?.parameters).to(contain(QueryParameter(name: "name", value: "Sasquatch")))
+                expect(actualRequest?.parameters).to(contain(QueryParameter(name: "quantity", value: "42")))
+              }
+
+              it("has the array query parameter") {
+                expect(actualRequest?.parameters).to(contain(QueryParameter(name: "someArray", values: "foo", "bar", "baz")))
               }
 
               it("has the expected headers") {

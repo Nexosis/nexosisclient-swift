@@ -11,13 +11,13 @@ class MockNexosisRequester: NexosisRequester {
   }
 
   var urlPathParameter: String?
-  var parametersParameter: [String : String]?
+  var parametersParameter: [QueryParameter]?
 
   func stubGet(response: RestResponse) {
     stubbedGetResponse = Promise<RestResponse>(value: response)
   }
 
-  override func get(urlPath: String, parameters: [String : String] = [:]) -> Promise<RestResponse> {
+  override func get(urlPath: String, parameters: [QueryParameter] = []) -> Promise<RestResponse> {
     urlPathParameter = urlPath
     parametersParameter = parameters
     return stubbedGetResponse

@@ -11,11 +11,11 @@ public class NexosisRequester {
     self.baseUrl = baseUrl
   }
 
-  func get(urlPath: String, parameters: [String : String] = [:]) -> Promise<RestResponse> {
+  func get(urlPath: String, parameters: [QueryParameter] = []) -> Promise<RestResponse> {
     return makeRequest(urlPath: urlPath, method: "GET", parameters: parameters)
   }
 
-  private func makeRequest(urlPath: String, method: String, parameters: [String : String]) -> Promise<RestResponse> {
+  private func makeRequest(urlPath: String, method: String, parameters: [QueryParameter]) -> Promise<RestResponse> {
     let url = "\(baseUrl)\(urlPath)"
     let headers = ["api-key" : apiKey, "api-client-id" : apiClientId]
     let request = RestRequest(url: url, method: "GET", parameters: parameters, headers: headers)

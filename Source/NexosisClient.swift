@@ -14,7 +14,10 @@ public class NexosisClient: ApiClient {
   func fetchAccountBalance() -> Promise<AccountBalance> {
 
     return requester
-      .get(urlPath: "/data", parameters: ["page" : "0", "pageSize" : "1"])
+      .get(urlPath: "/data", parameters: [
+        QueryParameter(name: "page", value: String(0)),
+        QueryParameter(name: "pageSize", value: String(1))
+      ])
       .then { self.processResponse(response: $0) }
   }
 

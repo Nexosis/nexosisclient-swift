@@ -58,9 +58,10 @@ class NexosisClientSpec: QuickSpec {
               }
 
               it("has the expected query parameters") {
-                expect(actualRequest?.parameters).to(haveCount(2))
-                expect(actualRequest?.parameters["page"]).to(equal("0"))
-                expect(actualRequest?.parameters["pageSize"]).to(equal("1"))
+                expect(actualRequest?.parameters).to(contain(
+                  QueryParameter(name: "page", value: "0"),
+                  QueryParameter(name: "pageSize", value: "1")
+                ))
               }
 
               it("has the expected headers") {
@@ -118,8 +119,8 @@ class NexosisClientSpec: QuickSpec {
 
               it("has the expected query parameters") {
                 expect(actualRequest?.parameters).to(haveCount(2))
-                expect(actualRequest?.parameters["page"]).to(equal("0"))
-                expect(actualRequest?.parameters["pageSize"]).to(equal("1"))
+                expect(actualRequest?.parameters).to(contain(QueryParameter(name: "page", value: "0")))
+                expect(actualRequest?.parameters).to(contain(QueryParameter(name: "pageSize", value: "1")))
               }
 
               it("has the expected headers") {
