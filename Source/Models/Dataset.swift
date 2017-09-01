@@ -11,13 +11,11 @@ public struct Dataset {
   }
 
   private func mapColumns(columns: [String: Any]) -> [String: Column] {
-
     var mappedColumns: [String: Column] = [:]
     for (key, value) in columns {
       let properties = value as? [String: Any] ?? [:]
       mappedColumns[key] = Column(name: key, properties: properties)
     }
-
     return mappedColumns
   }
 
@@ -26,15 +24,12 @@ public struct Dataset {
   }
 
   private func mapRow(row: [String: Any]) -> Event {
-
     var event: Event = [:]
     for (key, value) in row {
       let valueAsString = value as? String ?? ""
       let type = self.columns[key]?.type ?? .string
-
       event[key] = mapProperty(name: key, value: valueAsString, type: type)
     }
-
     return event
   }
 

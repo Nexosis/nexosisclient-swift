@@ -33,7 +33,7 @@ class DatasetClientListSpec: QuickSpec {
         ))
       }
 
-      context("happy path") {
+      context("when list succeeds") {
 
         beforeEach {
           waitUntil { done in
@@ -68,7 +68,7 @@ class DatasetClientListSpec: QuickSpec {
         }
       }
 
-      context("with no parameters") {
+      context("when no parameters are provided") {
 
         beforeEach {
           waitUntil { done in
@@ -100,63 +100,31 @@ class DatasetClientListSpec: QuickSpec {
         }
       }
 
-      context("with only partial name") {
+      context("when list fails") {
+
+        var actualError: NexosisClientError?
 
         beforeEach {
+
+          mockNexosisRequester.stubGet(response: RestResponse(
+            statusCode: 400,
+            body: [ "statusCode": 400, "message": "error message", "errorType": "error type" ]
+          ))
+
           waitUntil { done in
             subject
-              .list(partialName: "squatch")
-              .then { datasets -> Void in
-                actualParameters = mockNexosisRequester.parametersParameter
+              .list()
+              .catch { error in
+                actualError = error as? NexosisClientError
                 done()
-              }
-              .catch { error in print(error) }
+            }
           }
         }
 
-        it("has partial name parameter") {
-          expect(actualParameters).to(haveCount(1))
-          expect(actualParameters).to(contain(QueryParameter(name: "partialName", value: "squatch")))
-        }
-      }
-
-      context("with only page") {
-
-        beforeEach {
-          waitUntil { done in
-            subject
-              .list(page: 3)
-              .then { datasets -> Void in
-                actualParameters = mockNexosisRequester.parametersParameter
-                done()
-              }
-              .catch { error in print(error) }
-          }
-        }
-
-        it("has page parameter") {
-          expect(actualParameters).to(haveCount(1))
-          expect(actualParameters).to(contain(QueryParameter(name: "page", value: "3")))
-        }
-      }
-
-      context("with only page size") {
-
-        beforeEach {
-          waitUntil { done in
-            subject
-              .list(pageSize: 10)
-              .then { datasets -> Void in
-                actualParameters = mockNexosisRequester.parametersParameter
-                done()
-              }
-              .catch { error in print(error) }
-          }
-        }
-
-        it("has page size parameter") {
-          expect(actualParameters).to(haveCount(1))
-          expect(actualParameters).to(contain(QueryParameter(name: "pageSize", value: "10")))
+        it("throws an error") {
+          expect(actualError?.statusCode).to(equal(400))
+          expect(actualError?.message).to(equal("error message"))
+          expect(actualError?.errorType).to(equal("error type"))
         }
       }
     }

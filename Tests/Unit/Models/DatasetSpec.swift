@@ -5,7 +5,7 @@ import Nimble
 
 class DatasetSpec: QuickSpec {
   override func spec() {
-    fdescribe("Dataset") {
+    describe("Dataset") {
 
       var subject: Dataset!
 

@@ -12,35 +12,42 @@ public class DatasetClient: ApiClient {
 
     return requester
       .get(urlPath: "/data", parameters: parameters)
-      .then { self.processResponse(response: $0) }
+      .then { try self.processListResponse(response: $0) }
   }
 
-  func retrieve(datasetName: String, startDate: String, endDate: String, page: Int, pageSize: Int, include: [String]) -> Promise<Dataset> {
+  func retrieve(datasetName: String, startDate: String = "", endDate: String = "", page: Int = 0, pageSize: Int = 1000, include: [String] = []) -> Promise<Dataset> {
 
     var parameters: [QueryParameter] = []
 
-    parameters.append(QueryParameter(name: "startDate", value: startDate))
-    parameters.append(QueryParameter(name: "endDate", value: endDate))
-    parameters.append(QueryParameter(name: "page", value: String(page)))
-    parameters.append(QueryParameter(name: "pageSize", value: String(pageSize)))
-    parameters.append(QueryParameter(name: "include", value: include))
+    if (startDate != "") { parameters.append(QueryParameter(name: "startDate", value: startDate)) }
+    if (endDate != "") { parameters.append(QueryParameter(name: "endDate", value: endDate)) }
+    if (page != 0) { parameters.append(QueryParameter(name: "page", value: String(page))) }
+    if (pageSize != 1000) { parameters.append(QueryParameter(name: "pageSize", value: String(pageSize))) }
+    if (!include.isEmpty) { parameters.append(QueryParameter(name: "include", value: include)) }
 
     return requester
       .get(urlPath: "/data/\(datasetName)", parameters: parameters)
-      .then { self.processRetrieveResponse(response: $0) }
+      .then { try self.processRetrieveResponse(response: $0) }
   }
 
-  private func processResponse(response: RestResponse) -> Promise<[Dataset]> {
-    let datasets = response.body["items"] as? [Any] ?? []
+  private func processListResponse(response: RestResponse) throws -> Promise<[Dataset]> {
+    try throwIfError(response: response)
 
+    let datasets = response.body["items"] as? [Any] ?? []
     let result = datasets.map { dataset in
       return Dataset(data: dataset as? [String: Any] ?? [:])
     }
     return Promise<[Dataset]>(value: result)
   }
 
-  private func processRetrieveResponse(response: RestResponse) -> Promise<Dataset> {
-    let result = Dataset(data: response.body)
-    return Promise<Dataset>(value: result)
+  private func processRetrieveResponse(response: RestResponse) throws -> Promise<Dataset> {
+    try throwIfError(response: response)
+    return Promise<Dataset>(value: Dataset(data: response.body))
+  }
+
+  private func throwIfError(response: RestResponse) throws {
+    if (response.statusCode >= 400) {
+      throw NexosisClientError(data: response.body)
+    }
   }
 }

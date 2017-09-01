@@ -13,14 +13,3 @@ public class ApiClient {
   }
 }
 
-public enum NexosisClientError: Error, Equatable {
-  case generalError, parsingError
-}
-
-public func == (lhs: NexosisClientError, rhs: NexosisClientError) -> Bool {
-  switch (lhs, rhs) {
-    case (.generalError, .generalError): return true
-    case (.parsingError, .parsingError): return true
-    case (_, _): return false
-  }
-}

@@ -16,11 +16,6 @@ class DatasetClientRetreieveSpec: QuickSpec {
 
         subject = DatasetClient(apiKey: SpecHelper.ApiKey)
         subject.requester = mockNexosisRequester
-
-        mockNexosisRequester.stubGet(response: RestResponse(
-          statusCode: 200,
-          body: [ "dataSetName": "Sasquatch" ]
-        ))
       }
 
       context("when retrieval succeeds") {
@@ -28,6 +23,12 @@ class DatasetClientRetreieveSpec: QuickSpec {
         var actualDataset: Dataset?
 
         beforeEach {
+
+          mockNexosisRequester.stubGet(response: RestResponse(
+            statusCode: 200,
+            body: [ "dataSetName": "Sasquatch" ]
+          ))
+
           waitUntil { done in
             subject
               .retrieve(
@@ -66,6 +67,73 @@ class DatasetClientRetreieveSpec: QuickSpec {
 
         it("returns the expected dataset") {
           expect(actualDataset?.name).to(equal("Sasquatch"))
+        }
+      }
+
+      context("when no parameters are provided") {
+
+        var actualDataset: Dataset?
+
+        beforeEach {
+
+          mockNexosisRequester.stubGet(response: RestResponse(
+            statusCode: 200,
+            body: [ "dataSetName": "Sasquatch" ]
+          ))
+
+          waitUntil { done in
+            subject
+              .retrieve(datasetName: "squatch")
+              .then { dataset -> Void in
+                actualDataset = dataset
+                done()
+              }
+              .catch { error in print(error) }
+          }
+        }
+
+        it("calls the expected url with the dataset name in it") {
+          expect(mockNexosisRequester.urlPathParameter).to(equal("/data/squatch"));
+        }
+
+        it("has no parameters") {
+          expect(mockNexosisRequester.parametersParameter).to(beEmpty())
+        }
+
+        it("returns the expected dataset") {
+          expect(actualDataset?.name).to(equal("Sasquatch"))
+        }
+      }
+
+      context("when retrieval fails") {
+
+        var actualError: NexosisClientError?
+
+        beforeEach {
+
+          mockNexosisRequester.stubGet(response: RestResponse(
+            statusCode: 400,
+            body: [ "statusCode": 400, "message": "error message", "errorType": "error type" ]
+          ))
+
+          waitUntil { done in
+            subject
+              .retrieve(
+                datasetName: "squatch",
+                startDate: "1955-08-13", endDate: "1972-03-09",
+                page: 3, pageSize: 42,
+                include: ["foo", "bar", "baz"])
+              .catch { error in
+                actualError = error as? NexosisClientError
+                done()
+            }
+          }
+        }
+
+        it("throws an error") {
+          expect(actualError?.statusCode).to(equal(400))
+          expect(actualError?.message).to(equal("error message"))
+          expect(actualError?.errorType).to(equal("error type"))
         }
       }
     }
