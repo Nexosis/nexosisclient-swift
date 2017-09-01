@@ -5,7 +5,7 @@ import Nimble
 
 class DatasetSpec: QuickSpec {
   override func spec() {
-    describe("Dataset") {
+    fdescribe("Dataset") {
 
       var subject: Dataset!
 
@@ -15,29 +15,22 @@ class DatasetSpec: QuickSpec {
           subject = Dataset(data: [
             "dataSetName" : "Sasquatch",
             "columns" : [
-              "alpha" : [ "role" : "none" ],
-              "bravo" : [ "dataType" : "string" ],
-              "charlie" : [:]
+              "alpha" : [ "dataType" : "string" ],
+              "bravo" : [ "dataType" : "numeric" ],
+              "charlie" : [ "dataType" : "logical" ],
+              "delta" : [ "dataType" : "date" ],
+              "echo" : [ "dataType" : "numericMeasure" ],
             ],
             "data" : [
               [
-                "timestamp" : "2000-01-01T00:00:00+00:00",
-                "target" : "1.2",
-                "feature" : "3.4",
-                "string" : "Yeti"
+                "alpha" : "foo",
+                "bravo" : "1.2",
+                "charlie" : "True",
+                "delta" : "2013-01-04T00:00:00Z",
+                "echo" : "3.4"
               ],
-              [
-                "timestamp" : "2001-01-01T00:00:00+00:00",
-                "target" : "5.6",
-                "feature" : "7.8",
-                "string" : "Chupacabra"
-              ],
-              [
-                "timestamp" : "2002-01-01T00:00:00+00:00",
-                "target" : "9.1",
-                "feature" : "2.3",
-                "string" : "Nessie"
-              ]
+              [:],
+              [:]
             ]
           ])
         }
@@ -47,14 +40,26 @@ class DatasetSpec: QuickSpec {
         }
 
         it("has expected columns") {
-          expect(subject.columns).to(haveCount(3))
-          expect(subject.columns["alpha"]).to(equal(Column(name: "alpha", role: Role.none)))
-          expect(subject.columns["bravo"]).to(equal(Column(name: "bravo", type: .string)))
-          expect(subject.columns["charlie"]).to(equal(Column(name: "charlie")))
+          expect(subject.columns).to(haveCount(5))
+          expect(subject.columns["alpha"]).to(equal(Column(name: "alpha", type: .string)))
+          expect(subject.columns["bravo"]).to(equal(Column(name: "bravo", type: .numeric)))
+          expect(subject.columns["charlie"]).to(equal(Column(name: "charlie", type: .logical)))
+          expect(subject.columns["delta"]).to(equal(Column(name: "delta", type: .date)))
+          expect(subject.columns["echo"]).to(equal(Column(name: "echo", type: .numericMeasure)))
         }
 
-        it("has expected number of rows") {
+        it("has expected number of events") {
           expect(subject.data).to(haveCount(3))
+        }
+
+        it("has expected properties in event") {
+          var event: Event = subject.data.first ?? [:]
+          expect(event).to(haveCount(5))
+          expect(event["alpha"] as? Property).to(equal(Property<String>(name: "alpha", value: "foo")))
+          expect(event["bravo"] as? Property).to(equal(Property<Double>(name: "bravo", value: "1.2", type: .numeric)))
+          expect(event["charlie"] as? Property).to(equal(Property<Bool>(name: "charlie", value: "Yes", type: .logical)))
+          expect(event["delta"] as? Property).to(equal(Property<String>(name: "delta", value: "2013-01-04T00:00:00Z", type: .date)))
+          expect(event["echo"] as? Property).to(equal(Property<Double>(name: "echo", value: "3.4", type: .numericMeasure)))
         }
       }
     }

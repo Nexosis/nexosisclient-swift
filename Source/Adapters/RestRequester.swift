@@ -31,9 +31,12 @@ internal class QueryParameter : Equatable, CustomStringConvertible {
   }
 }
 
+internal typealias Headers = [String: String]
+internal typealias Body = [String: Any]
+
 internal class RestRequest {
 
-  init(url: String, method: String = "GET", parameters: [QueryParameter] = [], headers: [String : String] = [:], body: [String : Any] = [:]) {
+  init(url: String, method: String = "GET", parameters: [QueryParameter] = [], headers: Headers = [:], body: Body = [:]) {
     self.url = url
     self.method = method
     self.parameters = parameters
@@ -50,7 +53,7 @@ internal class RestRequest {
 
 internal class RestResponse {
 
-  init(statusCode: Int, headers: [String : String] = [:], body: [String : Any] = [:]) {
+  init(statusCode: Int, headers: Headers = [:], body: Body = [:]) {
     self.statusCode = statusCode
     self.headers = headers
     self.body = body
@@ -77,7 +80,7 @@ internal class RestRequester {
       .then { value, response in
         let statusCode = response.response?.statusCode ?? 500
         let headers = self.headersToString(headers: response.response?.allHeaderFields ?? [:])
-        let restResponse = RestResponse(statusCode: statusCode, headers: headers, body: value as? [String: Any] ?? [:])
+        let restResponse = RestResponse(statusCode: statusCode, headers: headers, body: value as? Body ?? [:])
 
         return Promise<RestResponse>(value: restResponse)
       }
@@ -92,7 +95,7 @@ internal class RestRequester {
   }
 
   private func headersToString(headers: [AnyHashable: Any]) -> [String:String] {
-    var result: [String: String] = [:]
+    var result: Headers = [:]
     for (key, value) in headers {
       let key = (key as? String ?? "").lowercased()
       let value = value as? String ?? ""
