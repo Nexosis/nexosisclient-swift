@@ -13,7 +13,7 @@ class DatasetClientListSpec: QuickSpec {
 
       var actualUrlPath: String?
       var actualParameters: [QueryParameter]?
-      var actualDatasets: [DatasetSummary]!
+      var actualDatasets: [Dataset]!
 
       beforeEach {
         mockNexosisRequester = MockNexosisRequester()

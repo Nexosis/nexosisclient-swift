@@ -3,16 +3,16 @@ import Nimble
 
 @testable import NexosisApiClientiOS
 
-class ColumnDescriptionSpec: QuickSpec {
+class ColumnSpec: QuickSpec {
   override func spec() {
-    describe("ColumnDescription") {
+    describe("Column") {
 
-      var subject: ColumnDescription!
+      var subject: Column!
 
       context("when created with a name and no properties") {
 
         beforeEach {
-          subject = ColumnDescription(name: "cryptidType", properties: [:])
+          subject = Column(name: "cryptidType", properties: [:])
         }
 
         it("has expected name") {
@@ -30,7 +30,7 @@ class ColumnDescriptionSpec: QuickSpec {
       context("when created with a name and properties") {
 
         beforeEach {
-          subject = ColumnDescription(
+          subject = Column(
             name: "cryptidType",
             properties: [
               "dataType": "string",
@@ -56,7 +56,7 @@ class ColumnDescriptionSpec: QuickSpec {
       context("when created woth a name and properties that are invalid strings") {
 
         beforeEach {
-          subject = ColumnDescription(
+          subject = Column(
             name: "cryptidType",
             properties: [
               "dataType": "bad",

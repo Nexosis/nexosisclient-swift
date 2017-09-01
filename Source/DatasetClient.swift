@@ -2,7 +2,7 @@ import PromiseKit
 
 public class DatasetClient: ApiClient {
 
-  func list(partialName: String = "", page: Int = 0, pageSize: Int = 1000) -> Promise<[DatasetSummary]> {
+  func list(partialName: String = "", page: Int = 0, pageSize: Int = 1000) -> Promise<[Dataset]> {
 
     var parameters: [QueryParameter] = []
 
@@ -15,7 +15,7 @@ public class DatasetClient: ApiClient {
       .then { self.processResponse(response: $0) }
   }
 
-  func retrieve(datasetName: String, startDate: String, endDate: String, page: Int, pageSize: Int, include: [String]) -> Promise<DatasetSummary> {
+  func retrieve(datasetName: String, startDate: String, endDate: String, page: Int, pageSize: Int, include: [String]) -> Promise<Dataset> {
 
     var parameters: [QueryParameter] = []
 
@@ -23,23 +23,24 @@ public class DatasetClient: ApiClient {
     parameters.append(QueryParameter(name: "endDate", value: endDate))
     parameters.append(QueryParameter(name: "page", value: String(page)))
     parameters.append(QueryParameter(name: "pageSize", value: String(pageSize)))
+    parameters.append(QueryParameter(name: "include", value: include))
 
     return requester
       .get(urlPath: "/data/\(datasetName)", parameters: parameters)
       .then { self.processRetrieveResponse(response: $0) }
   }
 
-  private func processResponse(response: RestResponse) -> Promise<[DatasetSummary]> {
+  private func processResponse(response: RestResponse) -> Promise<[Dataset]> {
     let datasets = response.body["items"] as? [Any] ?? []
 
     let result = datasets.map { dataset in
-      return DatasetSummary(data: dataset as? [String: Any] ?? [:])
+      return Dataset(data: dataset as? [String: Any] ?? [:])
     }
-    return Promise<[DatasetSummary]>(value: result)
+    return Promise<[Dataset]>(value: result)
   }
 
-  private func processRetrieveResponse(response: RestResponse) -> Promise<DatasetSummary> {
-    let result = DatasetSummary(data: response.body)
-    return Promise<DatasetSummary>(value: result)
+  private func processRetrieveResponse(response: RestResponse) -> Promise<Dataset> {
+    let result = Dataset(data: response.body)
+    return Promise<Dataset>(value: result)
   }
 }

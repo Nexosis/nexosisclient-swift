@@ -8,6 +8,11 @@ internal class QueryParameter : Equatable, CustomStringConvertible {
     self.values = [value]
   }
 
+  init(name: String, value: [String]) {
+    self.name = name
+    self.values = value
+  }
+
   init(name: String, values: String...) {
     self.name = name
     self.values = values

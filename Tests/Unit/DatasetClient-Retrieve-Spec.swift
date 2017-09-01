@@ -11,8 +11,6 @@ class DatasetClientRetreieveSpec: QuickSpec {
       var subject: DatasetClient!
       var mockNexosisRequester: MockNexosisRequester!
 
-      var actualDataset: DatasetSummary!
-
       beforeEach {
         mockNexosisRequester = MockNexosisRequester()
 
@@ -21,13 +19,13 @@ class DatasetClientRetreieveSpec: QuickSpec {
 
         mockNexosisRequester.stubGet(response: RestResponse(
           statusCode: 200,
-          body: [
-            "dataSetName": "Sasquatch"
-          ]
+          body: [ "dataSetName": "Sasquatch" ]
         ))
       }
 
-      context("happy path") {
+      context("when retrieval succeeds") {
+
+        var actualDataset: Dataset?
 
         beforeEach {
           waitUntil { done in
@@ -38,6 +36,7 @@ class DatasetClientRetreieveSpec: QuickSpec {
                 page: 3, pageSize: 42,
                 include: ["foo", "bar", "baz"])
               .then { dataset -> Void in
+                actualDataset = dataset
                 done()
               }
               .catch { error in print(error) }
@@ -61,11 +60,12 @@ class DatasetClientRetreieveSpec: QuickSpec {
         }
 
         it("has the included columns in the parameters") {
-//          let parameters = mockNexosisRequester.parametersParameter
-//          expect(parameters?["include"]).to(haveCount(3))
-//          expect(parameters?["include"][0]).to(equal("foo"))
-//          expect(parameters?["include"][1]).to(equal("foo"))
-//          expect(parameters?["include"][2]).to(equal("foo"))
+          let parameters = mockNexosisRequester.parametersParameter
+          expect(parameters).to(contain(QueryParameter(name: "include", values: "foo", "bar", "baz")))
+        }
+
+        it("returns the expected dataset") {
+          expect(actualDataset?.name).to(equal("Sasquatch"))
         }
       }
     }
