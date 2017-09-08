@@ -68,6 +68,9 @@
 		E45A30BC1F57594D007BE592 /* DatasetClient-Retrieve-Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A30BB1F57594D007BE592 /* DatasetClient-Retrieve-Spec.swift */; };
 		E45A30BD1F57594D007BE592 /* DatasetClient-Retrieve-Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A30BB1F57594D007BE592 /* DatasetClient-Retrieve-Spec.swift */; };
 		E45A30BE1F57594D007BE592 /* DatasetClient-Retrieve-Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A30BB1F57594D007BE592 /* DatasetClient-Retrieve-Spec.swift */; };
+		E47EDAFB1F632F7700FF97D5 /* DatasetClient-Delete-Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47EDAF91F632F4A00FF97D5 /* DatasetClient-Delete-Spec.swift */; };
+		E47EDAFC1F632F7700FF97D5 /* DatasetClient-Delete-Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47EDAF91F632F4A00FF97D5 /* DatasetClient-Delete-Spec.swift */; };
+		E47EDAFD1F632F7800FF97D5 /* DatasetClient-Delete-Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47EDAF91F632F4A00FF97D5 /* DatasetClient-Delete-Spec.swift */; };
 		E48DCE711F3DF4FC00AD5BB6 /* LICENSE.md in Sources */ = {isa = PBXBuildFile; fileRef = E48DCE6E1F3DF4FC00AD5BB6 /* LICENSE.md */; };
 		E48DCE721F3DF4FC00AD5BB6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E48DCE6F1F3DF4FC00AD5BB6 /* Podfile */; };
 		E48DCE731F3DF4FC00AD5BB6 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E48DCE701F3DF4FC00AD5BB6 /* README.md */; };
@@ -162,6 +165,7 @@
 		E45A30AF1F5750CA007BE592 /* Column.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Column.swift; sourceTree = "<group>"; };
 		E45A30B71F5751CB007BE592 /* ColumnSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnSpec.swift; sourceTree = "<group>"; };
 		E45A30BB1F57594D007BE592 /* DatasetClient-Retrieve-Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DatasetClient-Retrieve-Spec.swift"; sourceTree = "<group>"; };
+		E47EDAF91F632F4A00FF97D5 /* DatasetClient-Delete-Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DatasetClient-Delete-Spec.swift"; sourceTree = "<group>"; };
 		E48DCE6E1F3DF4FC00AD5BB6 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		E48DCE6F1F3DF4FC00AD5BB6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E48DCE701F3DF4FC00AD5BB6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 				E45A309F1F572CE1007BE592 /* Adapters */,
 				E45A30A61F573712007BE592 /* DatasetClient-List-Spec.swift */,
 				E45A30BB1F57594D007BE592 /* DatasetClient-Retrieve-Spec.swift */,
+				E47EDAF91F632F4A00FF97D5 /* DatasetClient-Delete-Spec.swift */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -1126,6 +1131,7 @@
 				E404F3911F3E28B90086EF40 /* NexosisClientSpec.swift in Sources */,
 				E4227B511F450A1A00EF02FC /* SpecHelper.swift in Sources */,
 				E43F8D721F59E56F006462A9 /* NexosisClientErrorSpec.swift in Sources */,
+				E47EDAFB1F632F7700FF97D5 /* DatasetClient-Delete-Spec.swift in Sources */,
 				E4186BBE1F43CF9900691E90 /* MockRestRequester.swift in Sources */,
 				E4D208801F4B6474000659F7 /* AccountBalanceSpec.swift in Sources */,
 			);
@@ -1163,6 +1169,7 @@
 				E404F3921F3E28BA0086EF40 /* NexosisClientSpec.swift in Sources */,
 				E4227B521F450A1A00EF02FC /* SpecHelper.swift in Sources */,
 				E43F8D731F59E56F006462A9 /* NexosisClientErrorSpec.swift in Sources */,
+				E47EDAFC1F632F7700FF97D5 /* DatasetClient-Delete-Spec.swift in Sources */,
 				E4186BBF1F43CF9900691E90 /* MockRestRequester.swift in Sources */,
 				E4D208811F4B6474000659F7 /* AccountBalanceSpec.swift in Sources */,
 			);
@@ -1200,6 +1207,7 @@
 				E404F3931F3E28BB0086EF40 /* NexosisClientSpec.swift in Sources */,
 				E4227B531F450A1A00EF02FC /* SpecHelper.swift in Sources */,
 				E43F8D741F59E56F006462A9 /* NexosisClientErrorSpec.swift in Sources */,
+				E47EDAFD1F632F7800FF97D5 /* DatasetClient-Delete-Spec.swift in Sources */,
 				E4186BC01F43CF9900691E90 /* MockRestRequester.swift in Sources */,
 				E4D208821F4B6474000659F7 /* AccountBalanceSpec.swift in Sources */,
 			);

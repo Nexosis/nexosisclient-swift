@@ -15,6 +15,10 @@ public class NexosisRequester {
     return makeRequest(urlPath: urlPath, method: "GET", parameters: parameters)
   }
 
+  func delete(urlPath: String, parameters: [QueryParameter] = []) -> Promise<RestResponse> {
+    return makeRequest(urlPath: urlPath, method: "DELETE", parameters: parameters)
+  }
+
   private func makeRequest(urlPath: String, method: String, parameters: [QueryParameter]) -> Promise<RestResponse> {
     let url = "\(baseUrl)\(urlPath)"
     let headers = ["api-key" : apiKey, "api-client-id" : apiClientId]
