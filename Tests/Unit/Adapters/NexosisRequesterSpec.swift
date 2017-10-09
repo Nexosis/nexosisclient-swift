@@ -1,5 +1,6 @@
 import Quick
 import Nimble
+import PromiseKit
 
 @testable import NexosisApiClientiOS
 
@@ -22,7 +23,7 @@ class NexosisRequesterSpec: QuickSpec {
           )
 
           mockRestRequester = MockRestRequester()
-          mockRestRequester.stubRequest(response: stubbedResponse)
+          mockRestRequester.stub(function: "request", return: Promise<RestResponse>(value: stubbedResponse))
           RestRequester.shared = mockRestRequester
 
           subject = NexosisRequester(apiKey: SpecHelper.ApiKey, baseUrl: SpecHelper.BaseUrl)
@@ -40,7 +41,7 @@ class NexosisRequesterSpec: QuickSpec {
                 subject
                   .get(urlPath: "/some/url")
                   .then { response -> Void in
-                    actualRequest = mockRestRequester.requestParameter
+                    actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
                     actualResponse = response
                     done()
                   }
@@ -86,7 +87,7 @@ class NexosisRequesterSpec: QuickSpec {
                     QueryParameter(name: "someArray", values: "foo", "bar", "baz")
                   ])
                   .then { response -> Void in
-                    actualRequest = mockRestRequester.requestParameter
+                    actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
                     actualResponse = response
                     done()
                   }

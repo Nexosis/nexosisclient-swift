@@ -24,10 +24,10 @@ class DatasetClientRetreieveSpec: QuickSpec {
 
         beforeEach {
 
-          mockNexosisRequester.stubGet(response: RestResponse(
+          mockNexosisRequester.stub(function: "get", return: Promise<RestResponse>(value: RestResponse(
             statusCode: 200,
             body: [ "dataSetName": "Sasquatch" ]
-          ))
+          )))
 
           waitUntil { done in
             subject
@@ -45,23 +45,23 @@ class DatasetClientRetreieveSpec: QuickSpec {
         }
 
         it("calls the expected url with the dataset name in it") {
-          expect(mockNexosisRequester.urlPathParameter).to(equal("/data/squatch"));
+          expect(mockNexosisRequester.parameters(forFunction: "get")[0] as? String).to(equal("/data/squatch"))
         }
 
         it("has the start and end date in the parameters") {
-          let parameters = mockNexosisRequester.parametersParameter
+          let parameters = mockNexosisRequester.parameters(forFunction: "get")[1] as? [QueryParameter]
           expect(parameters).to(contain(QueryParameter(name: "startDate", value: "1955-08-13")))
           expect(parameters).to(contain(QueryParameter(name: "endDate", value: "1972-03-09")))
         }
 
         it("has the page and page size in the parameters") {
-          let parameters = mockNexosisRequester.parametersParameter
+          let parameters = mockNexosisRequester.parameters(forFunction: "get")[1] as? [QueryParameter]
           expect(parameters).to(contain(QueryParameter(name: "page", value: "3")))
           expect(parameters).to(contain(QueryParameter(name: "pageSize", value: "42")))
         }
 
         it("has the included columns in the parameters") {
-          let parameters = mockNexosisRequester.parametersParameter
+          let parameters = mockNexosisRequester.parameters(forFunction: "get")[1] as? [QueryParameter]
           expect(parameters).to(contain(QueryParameter(name: "include", values: "foo", "bar", "baz")))
         }
 
@@ -76,10 +76,10 @@ class DatasetClientRetreieveSpec: QuickSpec {
 
         beforeEach {
 
-          mockNexosisRequester.stubGet(response: RestResponse(
+          mockNexosisRequester.stub(function: "get", return: Promise<RestResponse>(value: RestResponse(
             statusCode: 200,
             body: [ "dataSetName": "Sasquatch" ]
-          ))
+          )))
 
           waitUntil { done in
             subject
@@ -93,11 +93,11 @@ class DatasetClientRetreieveSpec: QuickSpec {
         }
 
         it("calls the expected url with the dataset name in it") {
-          expect(mockNexosisRequester.urlPathParameter).to(equal("/data/squatch"));
+          expect(mockNexosisRequester.parameters(forFunction: "get")[0] as? String).to(equal("/data/squatch"))
         }
 
         it("has no parameters") {
-          expect(mockNexosisRequester.parametersParameter).to(beEmpty())
+          expect(mockNexosisRequester.parameters(forFunction: "get")[1] as? [QueryParameter]).to(beEmpty())
         }
 
         it("returns the expected dataset") {
@@ -111,10 +111,10 @@ class DatasetClientRetreieveSpec: QuickSpec {
 
         beforeEach {
 
-          mockNexosisRequester.stubGet(response: RestResponse(
+          mockNexosisRequester.stub(function: "get", return: Promise<RestResponse>(value: RestResponse(
             statusCode: 400,
             body: [ "statusCode": 400, "message": "error message", "errorType": "error type" ]
-          ))
+          )))
 
           waitUntil { done in
             subject

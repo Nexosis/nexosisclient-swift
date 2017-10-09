@@ -22,9 +22,9 @@ class DatasetClientDeleteSpec: QuickSpec {
 
         beforeEach {
 
-          mockNexosisRequester.stubDelete(response: RestResponse(
+          mockNexosisRequester.stub(function: "delete", return: Promise<RestResponse>(value: RestResponse(
             statusCode: 204
-          ))
+          )))
 
           waitUntil { done in
             subject
@@ -38,17 +38,17 @@ class DatasetClientDeleteSpec: QuickSpec {
         }
 
         it("calls the expected url with the dataset name in it") {
-          expect(mockNexosisRequester.urlPathParameter).to(equal("/data/squatch"));
+          expect(mockNexosisRequester.parameters(forFunction: "delete")[0] as? String).to(equal("/data/squatch"))
         }
 
         it("has the start and end date in the parameters") {
-          let parameters = mockNexosisRequester.parametersParameter
+          let parameters = mockNexosisRequester.parameters(forFunction: "delete")[1] as? [QueryParameter]
           expect(parameters).to(contain(QueryParameter(name: "startDate", value: "1955-08-13")))
           expect(parameters).to(contain(QueryParameter(name: "endDate", value: "1972-03-09")))
         }
 
         it("has the expected cascade  parameters") {
-          let parameters = mockNexosisRequester.parametersParameter
+          let parameters = mockNexosisRequester.parameters(forFunction: "delete")[1] as? [QueryParameter]
           expect(parameters).to(contain(QueryParameter(name: "cascade", values: "forecast", "sessions")))
         }
       }
@@ -57,9 +57,9 @@ class DatasetClientDeleteSpec: QuickSpec {
 
         beforeEach {
 
-          mockNexosisRequester.stubDelete(response: RestResponse(
+          mockNexosisRequester.stub(function: "delete", return: Promise<RestResponse>(value: RestResponse(
             statusCode: 204
-          ))
+          )))
 
           waitUntil { done in
             subject
@@ -70,11 +70,11 @@ class DatasetClientDeleteSpec: QuickSpec {
         }
 
         it("calls the expected url with the dataset name in it") {
-          expect(mockNexosisRequester.urlPathParameter).to(equal("/data/squatch"));
+          expect(mockNexosisRequester.parameters(forFunction: "delete")[0] as? String).to(equal("/data/squatch"))
         }
 
         it("has no parameters") {
-          expect(mockNexosisRequester.parametersParameter).to(beEmpty())
+          expect(mockNexosisRequester.parameters(forFunction: "delete")[1] as? [QueryParameter]).to(beEmpty())
         }
       }
 
@@ -84,10 +84,10 @@ class DatasetClientDeleteSpec: QuickSpec {
 
         beforeEach {
 
-          mockNexosisRequester.stubDelete(response: RestResponse(
+          mockNexosisRequester.stub(function: "delete", return: Promise<RestResponse>(value: RestResponse(
             statusCode: 400,
             body: [ "statusCode": 400, "message": "error message", "errorType": "error type" ]
-          ))
+          )))
 
           waitUntil { done in
             subject

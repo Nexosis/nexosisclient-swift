@@ -19,7 +19,7 @@ class DatasetListSpec: QuickSpec {
           stubbedResponse = RestResponse(statusCode: 200)
 
           mockRestRequester = MockRestRequester()
-          mockRestRequester.stubRequest(response: stubbedResponse)
+          mockRestRequester.stub(function: "request", return: Promise<RestResponse>(value: stubbedResponse))
           RestRequester.shared = mockRestRequester
 
           subject = SpecHelper.Client()
@@ -39,7 +39,7 @@ class DatasetListSpec: QuickSpec {
           }
 
           it("calls calls the rest requester") {
-            expect(mockRestRequester.requestInvoked).to(beTrue());
+            expect(mockRestRequester.invoked(function: "request")).to(beTrue())
           }
         }
       }

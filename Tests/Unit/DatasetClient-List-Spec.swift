@@ -21,7 +21,7 @@ class DatasetClientListSpec: QuickSpec {
         subject = DatasetClient(apiKey: SpecHelper.ApiKey)
         subject.requester = mockNexosisRequester
 
-        mockNexosisRequester.stubGet(response: RestResponse(
+        mockNexosisRequester.stub(function: "get", return:Promise<RestResponse>(value: RestResponse(
           statusCode: 200,
           body: [
             "items": [
@@ -30,7 +30,7 @@ class DatasetClientListSpec: QuickSpec {
               [ "dataSetName": "Mothman" ]
             ]
           ]
-        ))
+        )))
       }
 
       context("when list succeeds") {
@@ -40,8 +40,8 @@ class DatasetClientListSpec: QuickSpec {
             subject
               .list(partialName: "squatch", page: 3, pageSize: 42)
               .then { datasets -> Void in
-                actualUrlPath = mockNexosisRequester.urlPathParameter
-                actualParameters = mockNexosisRequester.parametersParameter
+                actualUrlPath = mockNexosisRequester.parameters(forFunction: "get")[0] as? String
+                actualParameters = mockNexosisRequester.parameters(forFunction: "get")[1] as? [QueryParameter]
                 actualDatasets = datasets
                 done()
               }
@@ -75,8 +75,8 @@ class DatasetClientListSpec: QuickSpec {
             subject
               .list()
               .then { datasets -> Void in
-                actualUrlPath = mockNexosisRequester.urlPathParameter
-                actualParameters = mockNexosisRequester.parametersParameter
+                actualUrlPath = mockNexosisRequester.parameters(forFunction: "get")[0] as? String
+                actualParameters = mockNexosisRequester.parameters(forFunction: "get")[1] as? [QueryParameter]
                 actualDatasets = datasets
                 done()
               }
@@ -106,10 +106,10 @@ class DatasetClientListSpec: QuickSpec {
 
         beforeEach {
 
-          mockNexosisRequester.stubGet(response: RestResponse(
+          mockNexosisRequester.stub(function: "get", return: Promise<RestResponse>(value: RestResponse(
             statusCode: 400,
             body: [ "statusCode": 400, "message": "error message", "errorType": "error type" ]
-          ))
+          )))
 
           waitUntil { done in
             subject

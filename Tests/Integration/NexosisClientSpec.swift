@@ -36,14 +36,14 @@ class NexosisClientSpec: QuickSpec {
             beforeEach {
 
               mockRestRequester = MockRestRequester()
-              mockRestRequester.stubRequest(response: stubbedResponse)
+              mockRestRequester.stub(function: "request", return: Promise<RestResponse>(value: stubbedResponse))
               RestRequester.shared = mockRestRequester
 
               waitUntil { done in
                 subject
                   .fetchAccountBalance()
                   .then { accountBalance -> Void in
-                    actualRequest = mockRestRequester.requestParameter
+                    actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
                     actualAccountBalance = accountBalance
                     done()
                   }
@@ -96,14 +96,14 @@ class NexosisClientSpec: QuickSpec {
               stubbedResponse.headers = [:]
 
               mockRestRequester = MockRestRequester()
-              mockRestRequester.stubRequest(response: stubbedResponse)
+              mockRestRequester.stub(function: "request", return: Promise<RestResponse>(value: stubbedResponse))
               RestRequester.shared = mockRestRequester
 
               waitUntil { done in
                 subject
                   .fetchAccountBalance()
                   .then { accountBalance -> Void in
-                    actualRequest = mockRestRequester.requestParameter
+                    actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
                     actualAccountBalance = accountBalance
                     done()
                   }
