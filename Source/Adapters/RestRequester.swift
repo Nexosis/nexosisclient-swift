@@ -3,32 +3,32 @@ import Alamofire
 
 internal class QueryParameter : Equatable, CustomStringConvertible {
 
-  init(name: String, value: String) {
-    self.name = name
-    self.values = [value]
-  }
+    init(name: String, value: String) {
+        self.name = name
+        self.values = [value]
+    }
 
-  init(name: String, value: [String]) {
-    self.name = name
-    self.values = value
-  }
+    init(name: String, value: [String]) {
+        self.name = name
+        self.values = value
+    }
 
-  init(name: String, values: String...) {
-    self.name = name
-    self.values = values
-  }
+    init(name: String, values: String...) {
+        self.name = name
+        self.values = values
+    }
 
-  var name: String
-  var values: [String]
-  var value: String { return values.first ?? "" }
+    var name: String
+    var values: [String]
+    var value: String { return values.first ?? "" }
 
-  public static func == (lhs: QueryParameter, rhs: QueryParameter) -> Bool {
-    return lhs.name == rhs.name && lhs.values == rhs.values
-  }
+    public static func == (lhs: QueryParameter, rhs: QueryParameter) -> Bool {
+        return lhs.name == rhs.name && lhs.values == rhs.values
+    }
 
-  public var description: String {
-    return "QueryParameter: \(name)=\(values)"
-  }
+    public var description: String {
+        return "QueryParameter: \(name)=\(values)"
+    }
 }
 
 internal typealias Headers = [String: String]
@@ -36,72 +36,72 @@ internal typealias Body = [String: Any]
 
 internal class RestRequest {
 
-  init(url: String, method: String = "GET", parameters: [QueryParameter] = [], headers: Headers = [:], body: Body = [:]) {
-    self.url = url
-    self.method = method
-    self.parameters = parameters
-    self.headers = headers
-    self.body = body
-  }
+    init(url: String, method: String = "GET", parameters: [QueryParameter] = [], headers: Headers = [:], body: Body = [:]) {
+        self.url = url
+        self.method = method
+        self.parameters = parameters
+        self.headers = headers
+        self.body = body
+    }
 
-  var url: String
-  var method: String
-  var parameters: [QueryParameter]
-  var headers: [String : String]
-  var body: [String : Any]
+    var url: String
+    var method: String
+    var parameters: [QueryParameter]
+    var headers: [String : String]
+    var body: [String : Any]
 }
 
 internal class RestResponse {
 
-  init(statusCode: Int, headers: Headers = [:], body: Body = [:]) {
-    self.statusCode = statusCode
-    self.headers = headers
-    self.body = body
-  }
+    init(statusCode: Int, headers: Headers = [:], body: Body = [:]) {
+        self.statusCode = statusCode
+        self.headers = headers
+        self.body = body
+    }
 
-  var statusCode: Int
-  var headers: [String : String]
-  var body: [String: Any]
+    var statusCode: Int
+    var headers: [String : String]
+    var body: [String: Any]
 }
 
 internal class RestRequester {
 
-  static var shared: RestRequester = RestRequester()
+    static var shared: RestRequester = RestRequester()
 
-  func request(_ request: RestRequest) -> Promise<RestResponse> {
+    func request(_ request: RestRequest) -> Promise<RestResponse> {
 
-    let method = HTTPMethod(rawValue: request.method) ?? HTTPMethod.get
-    let parameters = parametersToDictionary(parameters: request.parameters)
+        let method = HTTPMethod(rawValue: request.method) ?? HTTPMethod.get
+        let parameters = parametersToDictionary(parameters: request.parameters)
 
-    return Alamofire
-      .request(request.url, method: method, parameters: parameters, headers: request.headers)
-      .validate(contentType: ["application/json"])
-      .responseJSON(with: .response)
-      .then { value, response in
-        let statusCode = response.response?.statusCode ?? 500
-        let headers = self.headersToString(headers: response.response?.allHeaderFields ?? [:])
-        let restResponse = RestResponse(statusCode: statusCode, headers: headers, body: value as? Body ?? [:])
+        return Alamofire
+            .request(request.url, method: method, parameters: parameters, headers: request.headers)
+            .validate(contentType: ["application/json"])
+            .responseJSON(with: .response)
+            .then { value, response in
+                let statusCode = response.response?.statusCode ?? 500
+                let headers = self.headersToString(headers: response.response?.allHeaderFields ?? [:])
+                let restResponse = RestResponse(statusCode: statusCode, headers: headers, body: value as? Body ?? [:])
 
-        return Promise<RestResponse>(value: restResponse)
-      }
-  }
-
-  private func parametersToDictionary(parameters: [QueryParameter]) -> [String:Any] {
-    var result: [String: Any] = [:]
-    for parameter in parameters {
-      result[parameter.name] = parameter.values
+                return Promise<RestResponse>(value: restResponse)
+        }
     }
-    return result
-  }
 
-  private func headersToString(headers: [AnyHashable: Any]) -> [String:String] {
-    var result: Headers = [:]
-    for (key, value) in headers {
-      let key = (key as? String ?? "").lowercased()
-      let value = value as? String ?? ""
-      result[key] = value
+    private func parametersToDictionary(parameters: [QueryParameter]) -> [String:Any] {
+        var result: [String: Any] = [:]
+        for parameter in parameters {
+            result[parameter.name] = parameter.values
+        }
+        return result
     }
-    return result
-  }
+
+    private func headersToString(headers: [AnyHashable: Any]) -> [String:String] {
+        var result: Headers = [:]
+        for (key, value) in headers {
+            let key = (key as? String ?? "").lowercased()
+            let value = value as? String ?? ""
+            result[key] = value
+        }
+        return result
+    }
 
 }
