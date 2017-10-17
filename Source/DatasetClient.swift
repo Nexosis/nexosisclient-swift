@@ -4,20 +4,21 @@ public class DatasetClient: ApiClient {
     
     // MARK: - delete
     
-    func delete(datasetName: String, startDate: String = "", endDate: String = "", cascade: [Cascade] = []) -> Promise<Void> {
-        let parameters = deleteParameters(startDate: startDate, endDate: endDate, cascade: cascade)
+    func delete(datasetName: String, startDate: String = "", endDate: String = "", startKey: String = "", endKey: String = "", keys: [String] = [], cascade: [Cascade] = []) -> Promise<Void> {
+        let parameters = deleteParameters(startDate: startDate, endDate: endDate, startKey: startKey, endKey: endKey, keys: keys, cascade: cascade)
         return requester
             .delete(urlPath: "/data/\(datasetName)", parameters: parameters)
             .then { try self.processDeleteResponse(response: $0) }
     }
     
-    private func deleteParameters(startDate: String, endDate: String, cascade: [Cascade]) -> [QueryParameter] {
+    private func deleteParameters(startDate: String, endDate: String, startKey: String, endKey: String, keys: [String], cascade: [Cascade]) -> [QueryParameter] {
         var parameters: [QueryParameter] = []
         parameters.append(contentsOf: startAndEndDateParameters(startDate: startDate, endDate: endDate))
+        parameters.append(contentsOf: keyParameters(startKey: startKey, endKey: endKey, keys: keys))
         parameters.append(contentsOf: cascadeParameter(cascade: cascade))
         return parameters
     }
-    
+
     private func processDeleteResponse(response: RestResponse) throws -> Promise<Void> {
         try throwIfError(response: response)
         return Promise<Void>()
@@ -83,7 +84,15 @@ public class DatasetClient: ApiClient {
         if (endDate != "") { parameters.append(QueryParameter(name: "endDate", value: endDate)) }
         return parameters
     }
-    
+
+    private func keyParameters(startKey: String, endKey: String, keys: [String]) -> [QueryParameter] {
+        var parameters: [QueryParameter] = []
+        if (startKey != "") { parameters.append(QueryParameter(name: "startKey", value: startKey)) }
+        if (endKey != "") { parameters.append(QueryParameter(name: "endKey", value: endKey)) }
+        if (!keys.isEmpty) { parameters.append(QueryParameter(name: "keys", value: keys)) }
+        return parameters
+    }
+
     private func pageAndSizeParameters(page: Int, pageSize: Int) -> [QueryParameter] {
         var parameters: [QueryParameter] = []
         if page != 0 { parameters.append(QueryParameter(name: "page", value: String(page))) }
@@ -110,5 +119,5 @@ public class DatasetClient: ApiClient {
 }
 
 public enum Cascade: String {
-    case forecast, sessions
+    case forecast, session, model
 }
