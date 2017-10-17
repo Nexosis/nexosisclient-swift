@@ -44,13 +44,13 @@ public enum DataType: String {
 }
 
 public enum Role: String {
-    case none, timestamp, target, feature
+    case none, timestamp, target, feature, key
 }
 
 public enum Imputation: String {
-    case zeroes, mean, median, mode
+    case zeroes, mean, median, mode, min, max
 }
 
 public enum Aggregation: String {
-    case sum, mean, median, mode
+    case sum, mean, median, mode, min, max
 }
