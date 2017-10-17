@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (4.5.0)
+  - Alamofire (4.5.1)
   - Moxie (0.2.1)
-  - Nimble (7.0.1)
+  - Nimble (7.0.2)
   - PromiseKit (4.3.2):
     - PromiseKit/Foundation (= 4.3.2)
     - PromiseKit/QuartzCore (= 4.3.2)
@@ -27,9 +27,9 @@ DEPENDENCIES:
   - Quick (~> 1.1.0)
 
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Moxie: 28aeb291a25dd3746d88b8d28767ea822b25f233
-  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
+  Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
   PromiseKit: 32430ae679605b17c15d6193679cae7bf60147f7
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
 
