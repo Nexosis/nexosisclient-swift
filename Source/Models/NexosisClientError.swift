@@ -1,4 +1,4 @@
-public class NexosisClientError: Error {
+public struct NexosisClientError: Error {
     
     var statusCode: Int?
     var message: String
