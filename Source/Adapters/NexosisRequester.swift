@@ -1,6 +1,11 @@
 import PromiseKit
 
-public class NexosisRequester {
+protocol NexosisRequesterProtocol {
+    func get(urlPath: String, parameters: [QueryParameter]) -> Promise<RestResponse>
+    func delete(urlPath: String, parameters: [QueryParameter]) -> Promise<RestResponse>
+}
+
+class NexosisRequester: NexosisRequesterProtocol {
     
     private let apiClientId = "Swift/v1.0.0"
     private let apiKey: String

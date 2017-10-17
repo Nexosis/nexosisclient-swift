@@ -1,7 +1,7 @@
 import PromiseKit
 import Alamofire
 
-internal class QueryParameter : Equatable, CustomStringConvertible {
+class QueryParameter : Equatable, CustomStringConvertible {
 
     init(name: String, value: String) {
         self.name = name
@@ -31,10 +31,10 @@ internal class QueryParameter : Equatable, CustomStringConvertible {
     }
 }
 
-internal typealias Headers = [String: String]
-internal typealias Body = [String: Any]
+typealias Headers = [String: String]
+typealias Body = [String: Any]
 
-internal class RestRequest {
+class RestRequest {
 
     init(url: String, method: String = "GET", parameters: [QueryParameter] = [], headers: Headers = [:], body: Body = [:]) {
         self.url = url
@@ -51,7 +51,7 @@ internal class RestRequest {
     var body: [String : Any]
 }
 
-internal class RestResponse {
+class RestResponse {
 
     init(statusCode: Int, headers: Headers = [:], body: Body = [:]) {
         self.statusCode = statusCode
@@ -64,9 +64,13 @@ internal class RestResponse {
     var body: [String: Any]
 }
 
-internal class RestRequester {
+protocol RestRequesterProtocol {
+    func request(_ request: RestRequest) -> Promise<RestResponse>
+}
 
-    static var shared: RestRequester = RestRequester()
+class RestRequester: RestRequesterProtocol {
+
+    static var shared: RestRequesterProtocol = RestRequester()
 
     func request(_ request: RestRequest) -> Promise<RestResponse> {
 
