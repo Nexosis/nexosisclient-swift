@@ -117,8 +117,10 @@ class RestRequester: RestRequesterProtocol {
         let method = HTTPMethod(rawValue: request.method) ?? HTTPMethod.get
         let parameters = parametersToDictionary(parameters: request.parameters)
 
+        let encoding: ParameterEncoding = UrlAndBodyEncoding(body: request.body)
+
         return Alamofire
-            .request(request.url, method: method, parameters: parameters, encoding: UrlAndBodyEncoding(request.body), headers: request.headers)
+            .request(request.url, method: method, parameters: parameters, encoding: encoding, headers: request.headers)
             .validate(contentType: ["application/json"])
             .responseJSON(with: .response)
             .then { value, response in

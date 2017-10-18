@@ -131,7 +131,7 @@ class NexosisRequesterSpec: QuickSpec {
                                 method: "PUT",
                                 headers: expectedHeaders)
                             expect(actualRequest).to(equal(expectedRequest))
-                            expect(actualRequest?.body).to(beEmpty())
+                            expect(actualRequest?.body).notTo(beEmpty())
                         }
 
                         it("returns the stubbed response") {
@@ -162,7 +162,7 @@ class NexosisRequesterSpec: QuickSpec {
                                 parameters: queryParameters,
                                 headers: expectedHeaders)
                             expect(actualRequest).to(equal(expectedRequest))
-                            expect(actualRequest?.body).to(beEmpty())
+                            expect(actualRequest?.body).notTo(beEmpty())
                         }
 
                         it("returns the stubbed response") {
