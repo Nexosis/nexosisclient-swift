@@ -1,7 +1,7 @@
 import PromiseKit
 import Alamofire
 
-class QueryParameter : Equatable, CustomStringConvertible {
+struct QueryParameter : Equatable, CustomStringConvertible {
 
     init(name: String, value: String) {
         self.name = name
@@ -34,7 +34,7 @@ class QueryParameter : Equatable, CustomStringConvertible {
 typealias Headers = [String: String]
 typealias Body = [String: Any]
 
-class RestRequest {
+struct RestRequest : Equatable, CustomStringConvertible {
 
     init(url: String, method: String = "GET", parameters: [QueryParameter] = [], headers: Headers = [:], body: Body = [:]) {
         self.url = url
@@ -47,11 +47,22 @@ class RestRequest {
     var url: String
     var method: String
     var parameters: [QueryParameter]
-    var headers: [String : String]
-    var body: [String : Any]
+    var headers: Headers
+    var body: Body
+
+    public static func == (lhs: RestRequest, rhs: RestRequest) -> Bool {
+        return lhs.url == rhs.url &&
+            lhs.method == rhs.method &&
+            lhs.parameters == rhs.parameters &&
+            lhs.headers == rhs.headers
+    }
+
+    public var description: String {
+        return "RestRequest: \(method) \(url) parameters=\(parameters) headers=\(headers) body=\(body)"
+    }
 }
 
-class RestResponse {
+struct RestResponse : Equatable, CustomStringConvertible {
 
     init(statusCode: Int, headers: Headers = [:], body: Body = [:]) {
         self.statusCode = statusCode
@@ -60,12 +71,41 @@ class RestResponse {
     }
 
     var statusCode: Int
-    var headers: [String : String]
-    var body: [String: Any]
+    var headers: Headers
+    var body: Body
+
+    public static func == (lhs: RestResponse, rhs: RestResponse) -> Bool {
+        return lhs.statusCode == rhs.statusCode && lhs.headers == rhs.headers
+    }
+
+    public var description: String {
+        return "RestResponse: statusCode=\(statusCode) headers=\(headers) body=\(body)"
+    }
+
 }
 
 protocol RestRequesterProtocol {
     func request(_ request: RestRequest) -> Promise<RestResponse>
+}
+
+struct UrlAndBodyEncoding: ParameterEncoding {
+    private let body: Body
+
+    init(body: Body) {
+        self.body = body
+    }
+
+    func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+        var encodedUrlRequest = try URLEncoding.queryString.encode(try urlRequest.asURLRequest(), with: parameters)
+
+        if (!body.isEmpty) {
+            let data = try JSONSerialization.data(withJSONObject: body, options: [])
+            encodedUrlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            encodedUrlRequest.httpBody = data
+        }
+
+        return encodedUrlRequest
+    }
 }
 
 class RestRequester: RestRequesterProtocol {
@@ -78,7 +118,7 @@ class RestRequester: RestRequesterProtocol {
         let parameters = parametersToDictionary(parameters: request.parameters)
 
         return Alamofire
-            .request(request.url, method: method, parameters: parameters, headers: request.headers)
+            .request(request.url, method: method, parameters: parameters, encoding: UrlAndBodyEncoding(request.body), headers: request.headers)
             .validate(contentType: ["application/json"])
             .responseJSON(with: .response)
             .then { value, response in

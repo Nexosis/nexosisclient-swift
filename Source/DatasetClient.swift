@@ -1,6 +1,12 @@
 import PromiseKit
 
 public class DatasetClient: ApiClient {
+
+    // MARK: - add
+
+    func add(dataset: Dataset) -> Promise<Void> {
+        return Promise<Void>()
+    }
     
     // MARK: - delete
     

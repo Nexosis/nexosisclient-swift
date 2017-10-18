@@ -3,6 +3,9 @@ public struct Dataset {
     var name: String = ""
     var columns: [String: Column] = [:]
     var data: [Event] = []
+
+    init(name: String) {
+    }
     
     init(data: [String: Any]) {
         self.name = data["dataSetName"] as? String ?? ""

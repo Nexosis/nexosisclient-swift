@@ -27,7 +27,7 @@ class NexosisRequester: NexosisRequesterProtocol {
     private func makeRequest(urlPath: String, method: String, parameters: [QueryParameter]) -> Promise<RestResponse> {
         let url = "\(baseUrl)\(urlPath)"
         let headers = ["api-key" : apiKey, "api-client-id" : apiClientId]
-        let request = RestRequest(url: url, method: "GET", parameters: parameters, headers: headers)
+        let request = RestRequest(url: url, method: method, parameters: parameters, headers: headers)
         
         return RestRequester.shared.request(request)
     }
