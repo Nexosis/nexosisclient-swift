@@ -10,13 +10,90 @@ class NexosisRequesterSpec: QuickSpec {
             
             var subject: NexosisRequester!
             var mockRestRequester: MockRestRequester!
-            
-            context("when created") {
 
-                let expectedHeaders = [
-                    "api-key": SpecHelper.ApiKey,
-                    "api-client-id": SpecHelper.ApiClientId
-                ]
+            let stubbedResponse = RestResponse(
+                statusCode: 200,
+                headers: ["someHeader": "some value"],
+                body: ["key": "value"])
+
+            let expectedHeaders = [
+                "api-key": SpecHelper.ApiKey,
+                "api-client-id": SpecHelper.ApiClientId
+            ]
+
+            var actualRequest: RestRequest?
+            var actualResponse: RestResponse?
+
+            beforeEach {
+                mockRestRequester = MockRestRequester()
+                mockRestRequester.stub(function: "request", return: Promise<RestResponse>(value: stubbedResponse))
+                RestRequester.shared = mockRestRequester
+
+                subject = NexosisRequester(apiKey: SpecHelper.ApiKey, baseUrl: SpecHelper.BaseUrl)
+            }
+
+            context("when calling simple methods") {
+
+                describe("get") {
+
+                    beforeEach {
+                        waitUntil { done in
+                            subject
+                                .get(urlPath: "/some/url")
+                                .then { response -> Void in
+                                    actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
+                                    actualResponse = response
+                                    done()
+                                }
+                                .catch { error in print(error) }
+                        }
+                    }
+
+                    it("passes the expected request") {
+                        let expectedRequest = RestRequest(
+                            url: SpecHelper.BaseUrl(tail: "/some/url"),
+                            method: "GET",
+                            headers: expectedHeaders)
+                        expect(actualRequest).to(equal(expectedRequest))
+                        expect(actualRequest?.body).to(beEmpty())
+                    }
+
+                    it("returns the stubbed response") {
+                        expect(actualResponse).to(equal(stubbedResponse))
+                    }
+                }
+
+                describe("delete") {
+
+                    beforeEach {
+                        waitUntil { done in
+                            subject
+                                .delete(urlPath: "/some/url")
+                                .then { response -> Void in
+                                    actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
+                                    actualResponse = response
+                                    done()
+                                }
+                                .catch { error in print(error) }
+                        }
+                    }
+
+                    it("passes the expected request") {
+                        let expectedRequest = RestRequest(
+                            url: SpecHelper.BaseUrl(tail: "/some/url"),
+                            method: "DELETE",
+                            headers: expectedHeaders)
+                        expect(actualRequest).to(equal(expectedRequest))
+                        expect(actualRequest?.body).to(beEmpty())
+                    }
+
+                    it("returns the stubbed response") {
+                        expect(actualResponse).to(equal(stubbedResponse))
+                    }
+                }
+            }
+
+            context("when calling methods with query parameters") {
 
                 let queryParameters = [
                     QueryParameter(name: "name", value: "Sasquatch"),
@@ -24,213 +101,127 @@ class NexosisRequesterSpec: QuickSpec {
                     QueryParameter(name: "someArray", values: "foo", "bar", "baz")
                 ]
 
-                let body = [ "cryptids" : [ "sasquatch", "chupacabra", "yeti" ] ]
-
-                var stubbedResponse: RestResponse!
-
-                var actualRequest: RestRequest?
-                var actualResponse: RestResponse?
-
-                beforeEach {
-                    stubbedResponse = RestResponse(
-                        statusCode: 200,
-                        headers: ["someHeader": "some value"],
-                        body: body
-                    )
-                    
-                    mockRestRequester = MockRestRequester()
-                    mockRestRequester.stub(function: "request", return: Promise<RestResponse>(value: stubbedResponse))
-                    RestRequester.shared = mockRestRequester
-                    
-                    subject = NexosisRequester(apiKey: SpecHelper.ApiKey, baseUrl: SpecHelper.BaseUrl)
-                }
-                
                 describe("get") {
-                    
-                    context("when getting with no query paramenters") {
-                        
-                        beforeEach {
-                            waitUntil { done in
-                                subject
-                                    .get(urlPath: "/some/url")
-                                    .then { response -> Void in
-                                        actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
-                                        actualResponse = response
-                                        done()
-                                    }
-                                    .catch { error in print(error) }
-                            }
-                        }
 
-                        it("passes the expected request") {
-                            let expectedRequest = RestRequest(
-                                url: SpecHelper.BaseUrl(tail: "/some/url"),
-                                method: "GET",
-                                headers: expectedHeaders)
-                            expect(actualRequest).to(equal(expectedRequest))
-                            expect(actualRequest?.body).to(beEmpty())
-                        }
-                        
-                        it("returns the stubbed response") {
-                            expect(actualResponse).to(equal(stubbedResponse))
-                        }
-                        
-                    }
-                    
-                    context("when getting with query parameters") {
-
-                        beforeEach {
-                            waitUntil { done in
-                                subject
-                                    .get(urlPath: "/some/url", parameters: queryParameters)
-                                    .then { response -> Void in
-                                        actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
-                                        actualResponse = response
-                                        done()
-                                    }
-                                    .catch { error in print(error) }
-                            }
-                        }
-
-                        it("passes the expected request") {
-                            let expectedRequest = RestRequest(
-                                url: SpecHelper.BaseUrl(tail: "/some/url"),
-                                method: "GET",
-                                parameters: queryParameters,
-                                headers: expectedHeaders)
-                            expect(actualRequest).to(equal(expectedRequest))
-                            expect(actualRequest?.body).to(beEmpty())
-                        }
-
-                        it("returns the stubbed response") {
-                            expect(actualResponse).to(equal(stubbedResponse))
+                    beforeEach {
+                        waitUntil { done in
+                            subject
+                                .get(urlPath: "/some/url", parameters: queryParameters)
+                                .then { response -> Void in
+                                    actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
+                                    actualResponse = response
+                                    done()
+                                }
+                                .catch { error in print(error) }
                         }
                     }
-                }
 
-                describe("put") {
-
-                    context("when putting with no query paramenters") {
-
-                        beforeEach {
-                            waitUntil { done in
-                                subject
-                                    .put(urlPath: "/some/url", body: body)
-                                    .then { response -> Void in
-                                        actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
-                                        actualResponse = response
-                                        done()
-                                    }
-                                    .catch { error in print(error) }
-                            }
-                        }
-
-                        it("passes the expected request") {
-                            let expectedRequest = RestRequest(
-                                url: SpecHelper.BaseUrl(tail: "/some/url"),
-                                method: "PUT",
-                                headers: expectedHeaders)
-                            expect(actualRequest).to(equal(expectedRequest))
-                            expect(actualRequest?.body).notTo(beEmpty())
-                        }
-
-                        it("returns the stubbed response") {
-                            expect(actualResponse).to(equal(stubbedResponse))
-                        }
-
+                    it("passes the expected request") {
+                        let expectedRequest = RestRequest(
+                            url: SpecHelper.BaseUrl(tail: "/some/url"),
+                            method: "GET",
+                            parameters: queryParameters,
+                            headers: expectedHeaders)
+                        expect(actualRequest).to(equal(expectedRequest))
+                        expect(actualRequest?.body).to(beEmpty())
                     }
 
-                    context("when getting with query parameters") {
-
-                        beforeEach {
-                            waitUntil { done in
-                                subject
-                                    .put(urlPath: "/some/url", parameters: queryParameters, body: body)
-                                    .then { response -> Void in
-                                        actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
-                                        actualResponse = response
-                                        done()
-                                    }
-                                    .catch { error in print(error) }
-                            }
-                        }
-
-                        it("passes the expected request") {
-                            let expectedRequest = RestRequest(
-                                url: SpecHelper.BaseUrl(tail: "/some/url"),
-                                method: "PUT",
-                                parameters: queryParameters,
-                                headers: expectedHeaders)
-                            expect(actualRequest).to(equal(expectedRequest))
-                            expect(actualRequest?.body).notTo(beEmpty())
-                        }
-
-                        it("returns the stubbed response") {
-                            expect(actualResponse).to(equal(stubbedResponse))
-                        }
+                    it("returns the stubbed response") {
+                        expect(actualResponse).to(equal(stubbedResponse))
                     }
                 }
 
                 describe("delete") {
 
-                    context("when deleting with no query paramenters") {
-
-                        beforeEach {
-                            waitUntil { done in
-                                subject
-                                    .delete(urlPath: "/some/url")
-                                    .then { response -> Void in
-                                        actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
-                                        actualResponse = response
-                                        done()
-                                    }
-                                    .catch { error in print(error) }
-                            }
+                    beforeEach {
+                        waitUntil { done in
+                            subject
+                                .delete(urlPath: "/some/url", parameters: queryParameters)
+                                .then { response -> Void in
+                                    actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
+                                    actualResponse = response
+                                    done()
+                                }
+                                .catch { error in print(error) }
                         }
-
-                        it("passes the expected request") {
-                            let expectedRequest = RestRequest(
-                                url: SpecHelper.BaseUrl(tail: "/some/url"),
-                                method: "DELETE",
-                                headers: expectedHeaders)
-                            expect(actualRequest).to(equal(expectedRequest))
-                            expect(actualRequest?.body).to(beEmpty())
-                        }
-
-                        it("returns the stubbed response") {
-                            expect(actualResponse).to(equal(stubbedResponse))
-                        }
-
                     }
 
-                    context("when deleting with query parameters") {
+                    it("passes the expected request") {
+                        let expectedRequest = RestRequest(
+                            url: SpecHelper.BaseUrl(tail: "/some/url"),
+                            method: "DELETE",
+                            parameters: queryParameters,
+                            headers: expectedHeaders)
+                        expect(actualRequest).to(equal(expectedRequest))
+                        expect(actualRequest?.body).to(beEmpty())
+                    }
 
-                        beforeEach {
-                            waitUntil { done in
-                                subject
-                                    .delete(urlPath: "/some/url", parameters: queryParameters)
-                                    .then { response -> Void in
-                                        actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
-                                        actualResponse = response
-                                        done()
-                                    }
-                                    .catch { error in print(error) }
-                            }
-                        }
+                    it("returns the stubbed response") {
+                        expect(actualResponse).to(equal(stubbedResponse))
+                    }
+                }
+            }
 
-                        it("passes the expected request") {
-                            let expectedRequest = RestRequest(
-                                url: SpecHelper.BaseUrl(tail: "/some/url"),
-                                method: "DELETE",
-                                parameters: queryParameters,
-                                headers: expectedHeaders)
-                            expect(actualRequest).to(equal(expectedRequest))
-                            expect(actualRequest?.body).to(beEmpty())
-                        }
+            context("when calling methods with bodies") {
 
-                        it("returns the stubbed response") {
-                            expect(actualResponse).to(equal(stubbedResponse))
+                let body = [ "cryptids" : [ "sasquatch", "chupacabra", "yeti" ] ]
+
+                describe("put") {
+
+                    beforeEach {
+                        waitUntil { done in
+                            subject
+                                .put(urlPath: "/some/url", body: body)
+                                .then { response -> Void in
+                                    actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
+                                    actualResponse = response
+                                    done()
+                                }
+                                .catch { error in print(error) }
                         }
+                    }
+
+                    it("passes the expected request") {
+                        let expectedRequest = RestRequest(
+                            url: SpecHelper.BaseUrl(tail: "/some/url"),
+                            method: "PUT",
+                            headers: expectedHeaders)
+                        expect(actualRequest).to(equal(expectedRequest))
+                        expect(actualRequest?.body).notTo(beEmpty())
+                    }
+
+                    it("returns the stubbed response") {
+                        expect(actualResponse).to(equal(stubbedResponse))
+                    }
+
+                }
+
+                describe("post") {
+
+                    beforeEach {
+                        waitUntil { done in
+                            subject
+                                .post(urlPath: "/some/url", body: body)
+                                .then { response -> Void in
+                                    actualRequest = mockRestRequester.parameters(forFunction: "request")[0] as? RestRequest
+                                    actualResponse = response
+                                    done()
+                                }
+                                .catch { error in print(error) }
+                        }
+                    }
+
+                    it("passes the expected request") {
+                        let expectedRequest = RestRequest(
+                            url: SpecHelper.BaseUrl(tail: "/some/url"),
+                            method: "POST",
+                            headers: expectedHeaders)
+                        expect(actualRequest).to(equal(expectedRequest))
+                        expect(actualRequest?.body).notTo(beEmpty())
+                    }
+
+                    it("returns the stubbed response") {
+                        expect(actualResponse).to(equal(stubbedResponse))
                     }
                 }
             }

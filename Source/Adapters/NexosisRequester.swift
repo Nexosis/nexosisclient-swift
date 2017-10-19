@@ -20,20 +20,23 @@ class NexosisRequester: NexosisRequesterProtocol {
         return makeRequest(urlPath: urlPath, method: "GET", parameters: parameters)
     }
 
-    func put(urlPath: String, parameters: [QueryParameter] = [], body: Body) -> Promise<RestResponse> {
-        return makeRequest(urlPath: urlPath, method: "PUT", parameters: parameters, body: body)
-    }
-    
     func delete(urlPath: String, parameters: [QueryParameter] = []) -> Promise<RestResponse> {
         return makeRequest(urlPath: urlPath, method: "DELETE", parameters: parameters)
     }
     
-    private func makeRequest(urlPath: String, method: String, parameters: [QueryParameter], body: Body = [:]) -> Promise<RestResponse> {
+    func put(urlPath: String, body: Body) -> Promise<RestResponse> {
+        return makeRequest(urlPath: urlPath, method: "PUT", body: body)
+    }
+
+    func post(urlPath: String, body: Body) -> Promise<RestResponse> {
+        return makeRequest(urlPath: urlPath, method: "POST", body: body)
+    }
+
+    private func makeRequest(urlPath: String, method: String, parameters: [QueryParameter] = [], body: Body = [:]) -> Promise<RestResponse> {
         let url = "\(baseUrl)\(urlPath)"
         let headers = ["api-key" : apiKey, "api-client-id" : apiClientId]
         let request = RestRequest(url: url, method: method, parameters: parameters, headers: headers, body: body)
         
         return RestRequester.shared.request(request)
     }
-    
 }
