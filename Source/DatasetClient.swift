@@ -5,14 +5,9 @@ public class DatasetClient: ApiClient {
     // MARK: - add
 
     func add(dataset: Dataset) -> Promise<Void> {
-        let body = addBody(dataset: dataset)
         return requester
-            .put(urlPath: "/data/\(dataset.name)", body: body)
+            .put(urlPath: "/data/\(dataset.name)", body: dataset.asJson)
             .then { try self.processAddResponse(response: $0) }
-    }
-
-    private func addBody(dataset: Dataset) -> Body {
-        return [:]
     }
 
     private func processAddResponse(response: RestResponse) throws -> Promise<Void> {

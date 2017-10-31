@@ -5,16 +5,20 @@ import Nimble
 
 class DatasetSpec: QuickSpec {
     override func spec() {
-        fdescribe("Dataset") {
+        describe("Dataset") {
             
             var subject: Dataset!
 
             let expectedColumns = [
                 "alpha": Column(name: "alpha", type: .string),
                 "bravo": Column(name: "bravo", type: .numeric),
-                "charlie": Column(name: "charlie", type: .logical),
-                "delta": Column(name: "delta", type: .date),
-                "echo": Column(name: "echo", type: .numericMeasure)
+                "charlie": Column(name: "charlie", type: .logical)
+            ]
+
+            let expectedProperties = [
+                "alpha": Property(name: "alpha", value: "foo"),
+                "bravo": Property(name: "bravo", value: "1.2"),
+                "charlie": Property(name: "charlie", value: "True")
             ]
 
             context("when created") {
@@ -25,12 +29,14 @@ class DatasetSpec: QuickSpec {
                         columns: [
                             Column(name: "alpha", type: .string),
                             Column(name: "bravo", type: .numeric),
-                            Column(name: "charlie", type: .logical),
-                            Column(name: "delta", type: .date),
-                            Column(name: "echo", type: .numericMeasure)
+                            Column(name: "charlie", type: .logical)
                         ],
-                        data: [
-                            Property<String>(name: "alpha", value: "foo", type: .string)
+                        rows: [
+                            [
+                                Property(name: "alpha", value: "foo"),
+                                Property(name: "bravo", value: "1.2"),
+                                Property(name: "charlie", value: "True")
+                            ]
                         ])
                 }
 
@@ -42,23 +48,73 @@ class DatasetSpec: QuickSpec {
                     expect(subject.columns).to(equal(expectedColumns))
                 }
 
-                it("has no rows") {
-                    expect(subject.data).to(beEmpty())
+                it("has expected number of rows") {
+                    expect(subject.rows).to(haveCount(1))
+                }
+
+                it("has expected properties in first row") {
+                    expect(subject.rows.first).to(equal(expectedProperties))
+                }
+
+                it("becomes expected JSON") {
+                    let actual = subject.asJson
+                    expect(actual).to(haveCount(2))
+
+                    let columns = actual["columns"] as? [String:Any] ?? [:]
+                    expect(columns).to(haveCount(3))
+
+                    let alpha = columns["alpha"] as? [String:Any] ?? [:]
+                    expect(alpha).to(haveCount(1))
+                    expect(alpha["dataType"] as? String).to(equal("string"))
+
+                    let bravo = columns["bravo"] as? [String:Any] ?? [:]
+                    expect(bravo).to(haveCount(1))
+                    expect(bravo["dataType"] as? String).to(equal("numeric"))
+
+                    let charlie = columns["charlie"] as? [String:Any] ?? [:]
+                    expect(charlie).to(haveCount(1))
+                    expect(charlie["dataType"] as? String).to(equal("logical"))
+
+                    let data = actual["data"] as? [[String:Any]] ?? []
+                    expect(data).to(haveCount(1))
+
+                    expect(data.first).to(haveCount(3))
+                    expect(data.first?["alpha"] as? String).to(equal("foo"))
+                    expect(data.first?["bravo"] as? String).to(equal("1.2"))
+                    expect(data.first?["charlie"] as? String).to(equal("True"))
                 }
 
                 context("when more columns are added") {
 
+                    beforeEach {
+                        subject.addColumn(column: Column(name: "delta"))
+                    }
+
+                    it("has expected number of columns") {
+                        expect(subject.columns).to(haveCount(4))
+                    }
+
+                    it("has expected additional column") {
+                        expect(subject.columns["delta"]).to(equal(Column(name: "delta")))
+                    }
                 }
 
-                context("when more data is added") {
+                context("when more rows are added") {
 
                     beforeEach {
-                        subject.addData(data: [
+                        subject.addRow(row: [
+                            Property(name: "alpha", value: "foo"),
+                            Property(name: "bravo", value: "1.2"),
+                            Property(name: "charlie", value: "True")
                         ])
                     }
 
-                    it("has expected rows") {
+                    it("has expected number of rows") {
+                        expect(subject.rows).to(haveCount(2))
+                    }
 
+                    it("has expected properties in first row") {
+                        expect(subject.rows[1]).to(equal(expectedProperties))
                     }
                 }
             }
@@ -71,20 +127,14 @@ class DatasetSpec: QuickSpec {
                         "columns" : [
                             "alpha" : [ "dataType" : "string" ],
                             "bravo" : [ "dataType" : "numeric" ],
-                            "charlie" : [ "dataType" : "logical" ],
-                            "delta" : [ "dataType" : "date" ],
-                            "echo" : [ "dataType" : "numericMeasure" ],
+                            "charlie" : [ "dataType" : "logical" ]
                         ],
                         "data" : [
                             [
                                 "alpha" : "foo",
                                 "bravo" : "1.2",
-                                "charlie" : "True",
-                                "delta" : "2013-01-04T00:00:00Z",
-                                "echo" : "3.4"
-                            ],
-                            [:],
-                            [:]
+                                "charlie" : "True"
+                            ]
                         ]
                         ])
                 }
@@ -97,18 +147,12 @@ class DatasetSpec: QuickSpec {
                     expect(subject.columns).to(equal(expectedColumns))
                 }
                 
-                it("has expected number of events") {
-                    expect(subject.data).to(haveCount(3))
+                it("has expected number of rows") {
+                    expect(subject.rows).to(haveCount(1))
                 }
                 
-                it("has expected properties in event") {
-                    var event: Event = subject.data.first ?? [:]
-                    expect(event).to(haveCount(5))
-                    expect(event["alpha"] as? Property).to(equal(Property<String>(name: "alpha", value: "foo")))
-                    expect(event["bravo"] as? Property).to(equal(Property<Double>(name: "bravo", value: "1.2", type: .numeric)))
-                    expect(event["charlie"] as? Property).to(equal(Property<Bool>(name: "charlie", value: "Yes", type: .logical)))
-                    expect(event["delta"] as? Property).to(equal(Property<String>(name: "delta", value: "2013-01-04T00:00:00Z", type: .date)))
-                    expect(event["echo"] as? Property).to(equal(Property<Double>(name: "echo", value: "3.4", type: .numericMeasure)))
+                it("has expected properties in first row") {
+                    expect(subject.rows.first).to(equal(expectedProperties))
                 }
             }
         }

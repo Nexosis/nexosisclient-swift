@@ -6,7 +6,7 @@ import PromiseKit
 
 class DatasetClientAddSpec: QuickSpec {
     override func spec() {
-        fdescribe("DatasetClient - Add") {
+        describe("DatasetClient - Add") {
 
             var subject: DatasetClient!
             var datasetToAdd: Dataset!
@@ -27,7 +27,23 @@ class DatasetClientAddSpec: QuickSpec {
                         Column(name: "date", type: .date, role: .timestamp),
                         Column(name: "class", type: .string, role: .feature),
                         Column(name: "quantity", type: .numeric, role: .target)],
-                    rows: [])
+                    rows: [
+                        [
+                            Property(name: "date", value: "2017-01-01"),
+                            Property(name: "class", value: "Class A"),
+                            Property(name: "quantity", value: "5")
+                        ],
+                        [
+                            Property(name: "date", value: "2017-01-02"),
+                            Property(name: "class", value: "Class B"),
+                            Property(name: "quantity", value: "3")
+                        ],
+                        [
+                            Property(name: "date", value: "2017-01-03"),
+                            Property(name: "class", value: "Class C"),
+                            Property(name: "quantity", value: "1")
+                        ]
+                    ])
             }
 
             context("when add succeeds") {
@@ -54,11 +70,13 @@ class DatasetClientAddSpec: QuickSpec {
 
                 it("has the expected body") {
                     actualBody = mockNexosisRequester.parameters(forFunction: "put")[1] as? Body
-                    expect(actualBody?.count).to(equal(2))
+                    expect(actualBody).to(haveCount(2))
+                    expect(actualBody?["columns"] as? [String:Any]).to(haveCount(3))
+                    expect(actualBody?["data"] as? [[String:Any]]).to(haveCount(3))
                 }
             }
 
-            xcontext("when adding fails") {
+            context("when adding fails") {
 
                 var actualError: NexosisClientError?
 

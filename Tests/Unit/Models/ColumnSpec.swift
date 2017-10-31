@@ -8,11 +8,38 @@ class ColumnSpec: QuickSpec {
         describe("Column") {
             
             var subject: Column!
-            
-            context("when created with a name and no properties") {
+
+            context("when created") {
+
+                beforeEach {
+                    subject = Column(name: "cryptidType", type: .string, role: .feature, imputation: .zeroes, aggregation: .sum)
+                }
+
+                it("has expected name") {
+                    expect(subject.name).to(equal("cryptidType"))
+                }
+
+                it("leaves all other properties as nil") {
+                    expect(subject.type).to(equal(DataType.string))
+                    expect(subject.role).to(equal(Role.feature))
+                    expect(subject.imputation).to(equal(Imputation.zeroes))
+                    expect(subject.aggregation).to(equal(Aggregation.sum))
+                }
+
+                it("becomes expected JSON") {
+                    let actual = subject.asJson
+                    expect(actual).to(haveCount(4))
+                    expect(actual["dataType"] as? String).to(equal("string"))
+                    expect(actual["role"] as? String).to(equal("feature"))
+                    expect(actual["imputation"] as? String).to(equal("zeroes"))
+                    expect(actual["aggregation"] as? String).to(equal("sum"))
+                }
+            }
+
+            context("when created with just a name") {
                 
                 beforeEach {
-                    subject = Column(name: "cryptidType", properties: [:])
+                    subject = Column(name: "cryptidType")
                 }
                 
                 it("has expected name") {
@@ -25,9 +52,14 @@ class ColumnSpec: QuickSpec {
                     expect(subject.imputation).to(beNil())
                     expect(subject.aggregation).to(beNil())
                 }
+
+                it("becomes expected JSON") {
+                    let actual = subject.asJson
+                    expect(actual).to(haveCount(0))
+                }
             }
             
-            context("when created with a name and properties") {
+            context("when created with a name and JSON properties") {
                 
                 beforeEach {
                     subject = Column(
@@ -51,9 +83,18 @@ class ColumnSpec: QuickSpec {
                     expect(subject.imputation).to(equal(Imputation.zeroes))
                     expect(subject.aggregation).to(equal(Aggregation.sum))
                 }
+
+                it("becomes expected JSON") {
+                    let actual = subject.asJson
+                    expect(actual).to(haveCount(4))
+                    expect(actual["dataType"] as? String).to(equal("string"))
+                    expect(actual["role"] as? String).to(equal("none"))
+                    expect(actual["imputation"] as? String).to(equal("zeroes"))
+                    expect(actual["aggregation"] as? String).to(equal("sum"))
+                }
             }
             
-            context("when created woth a name and properties that are invalid strings") {
+            context("when created with a name and JSON properties that are invalid strings") {
                 
                 beforeEach {
                     subject = Column(
@@ -76,6 +117,11 @@ class ColumnSpec: QuickSpec {
                     expect(subject.role).to(beNil())
                     expect(subject.imputation).to(beNil())
                     expect(subject.aggregation).to(beNil())
+                }
+
+                it("becomes expected JSON") {
+                    let actual = subject.asJson
+                    expect(actual).to(haveCount(0))
                 }
             }
         }

@@ -29,6 +29,15 @@ public struct Column : Equatable, CustomStringConvertible {
             lhs.imputation == rhs.imputation &&
             lhs.aggregation == rhs.aggregation
     }
+
+    public var asJson: [String : Any] {
+        var json: [String : Any] = [:]
+        if let rawValue = type?.rawValue { json["dataType"] = rawValue as Any }
+        if let rawValue = role?.rawValue { json["role"] = rawValue as Any }
+        if let rawValue = imputation?.rawValue { json["imputation"] = rawValue as Any }
+        if let rawValue = aggregation?.rawValue { json["aggregation"] = rawValue as Any }
+        return json
+    }
     
     public var description: String {
         return "Column: \(name) type=\(type as DataType?) role=\(role as Role?) imputation=\(imputation as Imputation?) aggregation=\(aggregation as Aggregation?)"

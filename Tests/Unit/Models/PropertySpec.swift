@@ -6,13 +6,13 @@ import Nimble
 class PropertySpec: QuickSpec {
     override func spec() {
         describe("Property") {
-            
-            describe(".string") {
-                
-                var subject: Property<String>!
+
+            var subject: Property!
+
+            context("when created with a string") {
                 
                 beforeEach {
-                    subject = Property(name: "foo", value: "bar", type: .string)
+                    subject = Property(name: "foo", value: "bar")
                 }
                 
                 it("has expected name") {
@@ -22,154 +22,245 @@ class PropertySpec: QuickSpec {
                 it("has expected value") {
                     expect(subject.value).to(equal("bar"))
                 }
+
+                it("parses to a string") {
+                    expect(subject.asString).to(equal("bar"))
+                }
+
+                it("parses to a double") {
+                    expect(subject.asDouble).to(beNil())
+                }
+
+                it("parses to a bool") {
+                    expect(subject.asBool).to(beNil())
+                }
             }
-            
-            describe(".date") {
-                
-                var subject: Property<String>!
-                
+
+            context("when created with a string that is a valid number") {
+
                 beforeEach {
-                    subject = Property(name: "foo", value: "2000-01-01T00:00:00Z", type: .date)
+                    subject = Property(name: "foo", value: "123.45")
                 }
-                
-                it("has expected value") {
-                    expect(subject.value).to(equal("2000-01-01T00:00:00Z"))
+
+                it("parses to a string") {
+                    expect(subject.asString).to(equal("123.45"))
+                }
+
+                it("parses to a double") {
+                    expect(subject.asDouble).to(equal(123.45))
+                }
+
+                it("parses to a bool") {
+                    expect(subject.asBool).to(beNil())
                 }
             }
-            
-            describe(".numeric") {
-                
-                var subject: Property<Double>!
-                
+
+            context("when created with a string of 'true'") {
+
                 beforeEach {
-                    subject = Property(name: "foo", value: "123.45", type: .numeric)
+                    subject = Property(name: "foo", value: "true")
                 }
-                
-                it("has expected value") {
-                    expect(subject.value).to(equal(123.45))
+
+                it("parses to a string") {
+                    expect(subject.asString).to(equal("true"))
+                }
+
+                it("parses to a double") {
+                    expect(subject.asDouble).to(beNil())
+                }
+
+                it("parses to a bool") {
+                    expect(subject.asBool).to(beTrue())
                 }
             }
-            
-            describe(".numericMeasure") {
-                
-                var subject: Property<Double>!
-                
+
+            context("when created with a string of '1'") {
+
                 beforeEach {
-                    subject = Property(name: "foo", value: "123.45", type: .numericMeasure)
+                    subject = Property(name: "foo", value: "1")
                 }
-                
-                it("has expected value") {
-                    expect(subject.value).to(equal(123.45))
+
+                it("parses to a string") {
+                    expect(subject.asString).to(equal("1"))
+                }
+
+                it("parses to a double") {
+                    expect(subject.asDouble).to(equal(1.0))
+                }
+
+                it("parses to a bool") {
+                    expect(subject.asBool).to(beTrue())
                 }
             }
-            
-            describe(".logical") {
-                
-                var subject: Property<Bool>!
-                
-                describe("true conditions") {
-                    
-                    context("when boolean is True") {
-                        
-                        beforeEach {
-                            subject = Property(name: "foo", value: "True", type: .logical)
-                        }
-                        
-                        it("has expected value") {
-                            expect(subject.value).to(beTrue())
-                        }
-                    }
-                    
-                    context("when boolean is 1") {
-                        
-                        beforeEach {
-                            subject = Property(name: "foo", value: "1", type: .logical)
-                        }
-                        
-                        it("has expected value") {
-                            expect(subject.value).to(beTrue())
-                        }
-                    }
-                    
-                    context("when boolean is On") {
-                        
-                        beforeEach {
-                            subject = Property(name: "foo", value: "On", type: .logical)
-                        }
-                        
-                        it("has expected value") {
-                            expect(subject.value).to(beTrue())
-                        }
-                    }
-                    
-                    context("when boolean is Yes") {
-                        
-                        beforeEach {
-                            subject = Property(name: "foo", value: "Yes", type: .logical)
-                        }
-                        
-                        it("has expected value") {
-                            expect(subject.value).to(beTrue())
-                        }
-                    }
+
+            context("when created with a string of 'on'") {
+
+                beforeEach {
+                    subject = Property(name: "foo", value: "on")
                 }
-                
-                describe("false conditions") {
-                    
-                    context("when boolean is False") {
-                        
-                        beforeEach {
-                            subject = Property(name: "foo", value: "False", type: .logical)
-                        }
-                        
-                        it("has expected value") {
-                            expect(subject.value).to(beFalse())
-                        }
-                    }
-                    
-                    context("when boolean is 0") {
-                        
-                        beforeEach {
-                            subject = Property(name: "foo", value: "0", type: .logical)
-                        }
-                        
-                        it("has expected value") {
-                            expect(subject.value).to(beFalse())
-                        }
-                    }
-                    
-                    context("when boolean is Off") {
-                        
-                        beforeEach {
-                            subject = Property(name: "foo", value: "Off", type: .logical)
-                        }
-                        
-                        it("has expected value") {
-                            expect(subject.value).to(beFalse())
-                        }
-                    }
-                    
-                    context("when boolean is No") {
-                        
-                        beforeEach {
-                            subject = Property(name: "foo", value: "No", type: .logical)
-                        }
-                        
-                        it("has expected value") {
-                            expect(subject.value).to(beFalse())
-                        }
-                    }
+
+                it("parses to a string") {
+                    expect(subject.asString).to(equal("on"))
                 }
-                
-                context("when boolean is invalid") {
-                    
-                    beforeEach {
-                        subject = Property(name: "foo", value: "Snargle", type: .logical)
-                    }
-                    
-                    it("has expected value") {
-                        expect(subject.value).to(beNil())
-                    }
+
+                it("parses to a double") {
+                    expect(subject.asDouble).to(beNil())
+                }
+
+                it("parses to a bool") {
+                    expect(subject.asBool).to(beTrue())
+                }
+            }
+
+            context("when created with a string of 'yes'") {
+
+                beforeEach {
+                    subject = Property(name: "foo", value: "yes")
+                }
+
+                it("parses to a string") {
+                    expect(subject.asString).to(equal("yes"))
+                }
+
+                it("parses to a double") {
+                    expect(subject.asDouble).to(beNil())
+                }
+
+                it("parses to a bool") {
+                    expect(subject.asBool).to(beTrue())
+                }
+            }
+
+            context("when created with a string of 'false'") {
+
+                beforeEach {
+                    subject = Property(name: "foo", value: "false")
+                }
+
+                it("parses to a string") {
+                    expect(subject.asString).to(equal("false"))
+                }
+
+                it("parses to a double") {
+                    expect(subject.asDouble).to(beNil())
+                }
+
+                it("parses to a bool") {
+                    expect(subject.asBool).to(beFalse())
+                }
+            }
+
+            context("when created with a string of '0'") {
+
+                beforeEach {
+                    subject = Property(name: "foo", value: "0")
+                }
+
+                it("parses to a string") {
+                    expect(subject.asString).to(equal("0"))
+                }
+
+                it("parses to a double") {
+                    expect(subject.asDouble).to(equal(0.0))
+                }
+
+                it("parses to a bool") {
+                    expect(subject.asBool).to(beFalse())
+                }
+            }
+
+            context("when created with a string of 'off'") {
+
+                beforeEach {
+                    subject = Property(name: "foo", value: "off")
+                }
+
+                it("parses to a string") {
+                    expect(subject.asString).to(equal("off"))
+                }
+
+                it("parses to a double") {
+                    expect(subject.asDouble).to(beNil())
+                }
+
+                it("parses to a bool") {
+                    expect(subject.asBool).to(beFalse())
+                }
+            }
+
+            context("when created with a string of 'no'") {
+
+                beforeEach {
+                    subject = Property(name: "foo", value: "no")
+                }
+
+                it("parses to a string") {
+                    expect(subject.asString).to(equal("no"))
+                }
+
+                it("parses to a double") {
+                    expect(subject.asDouble).to(beNil())
+                }
+
+                it("parses to a bool") {
+                    expect(subject.asBool).to(beFalse())
+                }
+            }
+
+            context("when created with a number") {
+
+                beforeEach {
+                    subject = Property(name: "foo", value: 123.45)
+                }
+
+                it("parses to a string") {
+                    expect(subject.asString).to(equal("123.45"))
+                }
+
+                it("parses to a double") {
+                    expect(subject.asDouble).to(equal(123.45))
+                }
+
+                it("parses to a bool") {
+                    expect(subject.asBool).to(beNil())
+                }
+            }
+
+            context("when created with a boolean of true") {
+
+                beforeEach {
+                    subject = Property(name: "foo", value: true)
+                }
+
+                it("parses to a string") {
+                    expect(subject.asString).to(equal("true"))
+                }
+
+                it("parses to a double") {
+                    expect(subject.asDouble).to(beNil())
+                }
+
+                it("parses to a bool") {
+                    expect(subject.asBool).to(beTrue())
+                }
+            }
+
+            context("when created with a boolean of false") {
+
+                beforeEach {
+                    subject = Property(name: "foo", value: false)
+                }
+
+                it("parses to a string") {
+                    expect(subject.asString).to(equal("false"))
+                }
+
+                it("parses to a double") {
+                    expect(subject.asDouble).to(beNil())
+                }
+
+                it("parses to a bool") {
+                    expect(subject.asBool).to(beFalse())
                 }
             }
         }
