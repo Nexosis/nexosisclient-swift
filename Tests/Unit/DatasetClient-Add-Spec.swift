@@ -6,11 +6,14 @@ import PromiseKit
 
 class DatasetClientAddSpec: QuickSpec {
     override func spec() {
-        describe("DatasetClient - Add") {
+        fdescribe("DatasetClient - Add") {
 
             var subject: DatasetClient!
             var datasetToAdd: Dataset!
             var mockNexosisRequester: MockNexosisRequester!
+
+            var actualUrlPath: String?
+            var actualBody: Body?
 
             beforeEach {
                 mockNexosisRequester = MockNexosisRequester()
@@ -18,7 +21,13 @@ class DatasetClientAddSpec: QuickSpec {
                 subject = DatasetClient(apiKey: SpecHelper.ApiKey)
                 subject.requester = mockNexosisRequester
 
-                datasetToAdd = Dataset(name: "chupacabra")
+                datasetToAdd = Dataset(
+                    name: "squatch",
+                    columns: [
+                        Column(name: "date", type: .date, role: .timestamp),
+                        Column(name: "class", type: .string, role: .feature),
+                        Column(name: "quantity", type: .numeric, role: .target)],
+                    rows: [])
             }
 
             context("when add succeeds") {
@@ -39,7 +48,13 @@ class DatasetClientAddSpec: QuickSpec {
                 }
 
                 it("calls the expected url with the dataset name in it") {
-                    expect(mockNexosisRequester.parameters(forFunction: "put")[0] as? String).to(equal("/data/squatch"))
+                    actualUrlPath = mockNexosisRequester.parameters(forFunction: "put")[0] as? String
+                    expect(actualUrlPath).to(equal("/data/squatch"))
+                }
+
+                it("has the expected body") {
+                    actualBody = mockNexosisRequester.parameters(forFunction: "put")[1] as? Body
+                    expect(actualBody?.count).to(equal(2))
                 }
             }
 

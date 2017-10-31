@@ -2,11 +2,16 @@ public struct Property<T : Equatable> : Equatable, CustomStringConvertible {
     
     var name: String
     var type: DataType
-    var value: T?
+    private var stringValue: String
+
+    var value: String {
+        return parseString(stringValue)
+    }
     
     init(name: String, value: String, type: DataType = .string) {
         self.name = name
         self.type = type
+        self.stringValue = value
         self.value = parseValue(value: value)
     }
     

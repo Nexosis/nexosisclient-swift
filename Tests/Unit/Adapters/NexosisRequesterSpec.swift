@@ -6,7 +6,7 @@ import PromiseKit
 
 class NexosisRequesterSpec: QuickSpec {
     override func spec() {
-        fdescribe("NexosisRequster") {
+        describe("NexosisRequster") {
             
             var subject: NexosisRequester!
             var mockRestRequester: MockRestRequester!

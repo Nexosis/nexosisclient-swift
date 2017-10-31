@@ -5,9 +5,21 @@ public class DatasetClient: ApiClient {
     // MARK: - add
 
     func add(dataset: Dataset) -> Promise<Void> {
+        let body = addBody(dataset: dataset)
+        return requester
+            .put(urlPath: "/data/\(dataset.name)", body: body)
+            .then { try self.processAddResponse(response: $0) }
+    }
+
+    private func addBody(dataset: Dataset) -> Body {
+        return [:]
+    }
+
+    private func processAddResponse(response: RestResponse) throws -> Promise<Void> {
+        try throwIfError(response: response)
         return Promise<Void>()
     }
-    
+
     // MARK: - delete
     
     func delete(datasetName: String, startDate: String = "", endDate: String = "", startKey: String = "", endKey: String = "", keys: [String] = [], cascade: [Cascade] = []) -> Promise<Void> {

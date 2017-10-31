@@ -4,7 +4,9 @@ public struct Dataset {
     var columns: [String: Column] = [:]
     var data: [Event] = []
 
-    init(name: String) {
+    init(name: String, columns: [Column] = [], data: [Property] = []) {
+        self.name = name
+        columns.forEach { self.columns[$0.name] = $0 }
     }
     
     init(data: [String: Any]) {
@@ -12,7 +14,11 @@ public struct Dataset {
         self.columns = mapColumns(columns: data["columns"] as? [String: Any] ?? [:])
         self.data = mapData(data: data["data"] as? [[String:Any]] ?? [])
     }
-    
+
+    public func addData(data: [Any]) {
+
+    }
+
     private func mapColumns(columns: [String: Any]) -> [String: Column] {
         var mappedColumns: [String: Column] = [:]
         for (key, value) in columns {

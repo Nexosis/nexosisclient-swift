@@ -3,6 +3,8 @@ import PromiseKit
 protocol NexosisRequesterProtocol {
     func get(urlPath: String, parameters: [QueryParameter]) -> Promise<RestResponse>
     func delete(urlPath: String, parameters: [QueryParameter]) -> Promise<RestResponse>
+    func put(urlPath: String, body: Body) -> Promise<RestResponse>
+    func post(urlPath: String, body: Body) -> Promise<RestResponse>
 }
 
 class NexosisRequester: NexosisRequesterProtocol {
