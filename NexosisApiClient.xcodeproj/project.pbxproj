@@ -132,6 +132,7 @@
 		E40434761F4797ED004E7873 /* Dataset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dataset.swift; path = Source/Models/Dataset.swift; sourceTree = SOURCE_ROOT; };
 		E404F3981F3E462D0086EF40 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E4186BBD1F43CF9900691E90 /* MockRestRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRestRequester.swift; sourceTree = "<group>"; };
+		E41FBB9D1FB65C340047A054 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		E4227B4B1F45082C00EF02FC /* DatasetListSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasetListSpec.swift; sourceTree = "<group>"; };
 		E4227B501F450A1A00EF02FC /* SpecHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecHelper.swift; sourceTree = "<group>"; };
 		E437665D1FB6341E0097B7F1 /* NexosisApiClient.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NexosisApiClient.podspec; sourceTree = "<group>"; };
@@ -325,6 +326,7 @@
 		E4DB0D971F3CDF790038DF5C = {
 			isa = PBXGroup;
 			children = (
+				E41FBB9D1FB65C340047A054 /* .swift-version */,
 				E437665D1FB6341E0097B7F1 /* NexosisApiClient.podspec */,
 				E404F3981F3E462D0086EF40 /* .gitignore */,
 				E48DCE6E1F3DF4FC00AD5BB6 /* LICENSE.md */,
