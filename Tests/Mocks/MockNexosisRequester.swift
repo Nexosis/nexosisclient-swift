@@ -1,7 +1,7 @@
 import Moxie
 import PromiseKit
 
-@testable import NexosisApiClientiOS
+@testable import NexosisApiClient
 
 class MockNexosisRequester: NexosisRequesterProtocol, Mock {
     var moxie = Moxie()

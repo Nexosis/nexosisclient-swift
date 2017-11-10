@@ -1,4 +1,4 @@
-@testable import NexosisApiClientiOS
+@testable import NexosisApiClient
 
 struct SpecHelper {
 

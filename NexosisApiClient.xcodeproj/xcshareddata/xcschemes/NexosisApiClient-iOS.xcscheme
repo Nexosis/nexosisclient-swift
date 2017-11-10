@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4DB0DBF1F3CE0DA0038DF5C"
-               BuildableName = "NexosisApiClientiOS.framework"
+               BuildableName = "NexosisApiClient.framework"
                BlueprintName = "NexosisApiClientiOS"
                ReferencedContainer = "container:NexosisApiClient.xcodeproj">
             </BuildableReference>
@@ -44,7 +44,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4DB0DBF1F3CE0DA0038DF5C"
-            BuildableName = "NexosisApiClientiOS.framework"
+            BuildableName = "NexosisApiClient.framework"
             BlueprintName = "NexosisApiClientiOS"
             ReferencedContainer = "container:NexosisApiClient.xcodeproj">
          </BuildableReference>
@@ -67,7 +67,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4DB0DBF1F3CE0DA0038DF5C"
-            BuildableName = "NexosisApiClientiOS.framework"
+            BuildableName = "NexosisApiClient.framework"
             BlueprintName = "NexosisApiClientiOS"
             ReferencedContainer = "container:NexosisApiClient.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4DB0DBF1F3CE0DA0038DF5C"
-            BuildableName = "NexosisApiClientiOS.framework"
+            BuildableName = "NexosisApiClient.framework"
             BlueprintName = "NexosisApiClientiOS"
             ReferencedContainer = "container:NexosisApiClient.xcodeproj">
          </BuildableReference>

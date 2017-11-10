@@ -2,7 +2,7 @@ import Quick
 import Nimble
 import PromiseKit
 
-@testable import NexosisApiClientiOS
+@testable import NexosisApiClient
 
 class NexosisRequesterSpec: QuickSpec {
     override func spec() {

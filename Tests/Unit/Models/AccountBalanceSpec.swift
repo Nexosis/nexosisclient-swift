@@ -1,7 +1,7 @@
 import Quick
 import Nimble
 
-@testable import NexosisApiClientiOS
+@testable import NexosisApiClient
 
 class AccountBalanceSpec: QuickSpec {
     override func spec() {

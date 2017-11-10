@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.1'
+
 use_frameworks!
 
 def all_targets
@@ -16,6 +16,7 @@ def test_dependencies
 end
 
 target 'NexosisApiClientiOS' do
+  platform :ios, '8.0'
   all_targets
 
   target 'NexosisApiClientiOSTests' do
@@ -25,6 +26,7 @@ target 'NexosisApiClientiOS' do
 end
 
 target 'NexosisApiClientMacOS' do
+  platform :osx, '10.11'
   all_targets
 
   target 'NexosisApiClientMacOSTests' do
@@ -34,6 +36,7 @@ target 'NexosisApiClientMacOS' do
 end
 
 target 'NexosisApiClientTvOS' do
+  platform :tvos, '9.0'
   all_targets
 
   target 'NexosisApiClientTvOSTests' do
@@ -43,5 +46,6 @@ target 'NexosisApiClientTvOS' do
 end
 
 target 'NexosisApiClientWatchOS' do
+  platform :watchos, '2.0'
   all_targets
 end

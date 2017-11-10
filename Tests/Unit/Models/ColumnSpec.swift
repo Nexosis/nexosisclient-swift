@@ -1,7 +1,7 @@
 import Quick
 import Nimble
 
-@testable import NexosisApiClientiOS
+@testable import NexosisApiClient
 
 class ColumnSpec: QuickSpec {
     override func spec() {
