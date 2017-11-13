@@ -4,7 +4,7 @@ public class NexosisClient: ApiClient {
     
     private var datasetClient: DatasetClient?
     
-    var datasets: DatasetClient {
+    public var datasets: DatasetClient {
         if datasetClient == nil {
             datasetClient = DatasetClient(apiKey: apiKey, baseUrl: baseUrl)
         }
