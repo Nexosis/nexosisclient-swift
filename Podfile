@@ -38,11 +38,6 @@ end
 target 'NexosisApiClientTvOS' do
   platform :tvos, '9.0'
   all_targets
-
-  target 'NexosisApiClientTvOSTests' do
-    test_dependencies
-  end
-
 end
 
 target 'NexosisApiClientWatchOS' do
