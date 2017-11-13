@@ -1,9 +1,9 @@
 public struct NexosisClientError: Error {
     
-    var statusCode: Int?
-    var message: String
-    var errorType: String
-    var errorDetails: [String: Any]
+    public var statusCode: Int?
+    public var message: String
+    public var errorType: String
+    public var errorDetails: [String: Any]
     
     init(data: [String: Any]) {
         statusCode = data["statusCode"] as? Int

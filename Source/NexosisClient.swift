@@ -11,7 +11,7 @@ public class NexosisClient: ApiClient {
         return datasetClient!
     }
     
-    func fetchAccountBalance() -> Promise<AccountBalance> {
+    public func fetchAccountBalance() -> Promise<AccountBalance> {
         
         return requester
             .get(urlPath: "/data", parameters: [

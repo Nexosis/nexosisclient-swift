@@ -1,12 +1,12 @@
 public struct Column : Equatable, CustomStringConvertible {
     
-    var name = ""
-    var type: DataType?
-    var role: Role?
-    var imputation: Imputation?
-    var aggregation: Aggregation?
+    public var name = ""
+    public var type: DataType?
+    public var role: Role?
+    public var imputation: Imputation?
+    public var aggregation: Aggregation?
     
-    init(name: String, type: DataType? = nil, role: Role? = nil, imputation: Imputation? = nil, aggregation: Aggregation? = nil) {
+    public init(name: String, type: DataType? = nil, role: Role? = nil, imputation: Imputation? = nil, aggregation: Aggregation? = nil) {
         self.name = name
         self.type = type
         self.role = role
@@ -30,7 +30,7 @@ public struct Column : Equatable, CustomStringConvertible {
             lhs.aggregation == rhs.aggregation
     }
 
-    public var asJson: [String : Any] {
+    var asJson: [String : Any] {
         var json: [String : Any] = [:]
         if let rawValue = type?.rawValue { json["dataType"] = rawValue as Any }
         if let rawValue = role?.rawValue { json["role"] = rawValue as Any }

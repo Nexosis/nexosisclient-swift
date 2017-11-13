@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name = "NexosisApiClient"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
   s.summary = "Swift client for the Nexosis API."
   s.description = "The NexosisApiClient makes it easy to use use the Nexosis API from Swift."
   s.homepage = "http://nexosis.com"

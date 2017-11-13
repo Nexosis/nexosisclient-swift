@@ -4,7 +4,7 @@ public class DatasetClient: ApiClient {
 
     // MARK: - add
 
-    func add(dataset: Dataset) -> Promise<Void> {
+    public func add(dataset: Dataset) -> Promise<Void> {
         return requester
             .put(urlPath: "/data/\(dataset.name)", body: dataset.asJson)
             .then { try self.processAddResponse(response: $0) }
@@ -17,7 +17,7 @@ public class DatasetClient: ApiClient {
 
     // MARK: - delete
     
-    func delete(datasetName: String, startDate: String = "", endDate: String = "", startKey: String = "", endKey: String = "", keys: [String] = [], cascade: [Cascade] = []) -> Promise<Void> {
+    public func delete(datasetName: String, startDate: String = "", endDate: String = "", startKey: String = "", endKey: String = "", keys: [String] = [], cascade: [Cascade] = []) -> Promise<Void> {
         let parameters = deleteParameters(startDate: startDate, endDate: endDate, startKey: startKey, endKey: endKey, keys: keys, cascade: cascade)
         return requester
             .delete(urlPath: "/data/\(datasetName)", parameters: parameters)
@@ -39,7 +39,7 @@ public class DatasetClient: ApiClient {
     
     // MARK: - list
     
-    func list(partialName: String = "", page: Int = 0, pageSize: Int = 1000) -> Promise<[Dataset]> {
+    public func list(partialName: String = "", page: Int = 0, pageSize: Int = 1000) -> Promise<[Dataset]> {
         let parameters = listParameters(partialName: partialName, page: page, pageSize: pageSize)
         return requester
             .get(urlPath: "/data", parameters: parameters)
@@ -65,7 +65,7 @@ public class DatasetClient: ApiClient {
     
     // MARK: - retrieve
     
-    func retrieve(datasetName: String, startDate: String = "", endDate: String = "", page: Int = 0, pageSize: Int = 1000, include: [String] = []) -> Promise<Dataset> {
+    public func retrieve(datasetName: String, startDate: String = "", endDate: String = "", page: Int = 0, pageSize: Int = 1000, include: [String] = []) -> Promise<Dataset> {
         let parameters = retrieveParameters(startDate: startDate, endDate: endDate, page: page, pageSize: pageSize, include: include)
         return requester
             .get(urlPath: "/data/\(datasetName)", parameters: parameters)

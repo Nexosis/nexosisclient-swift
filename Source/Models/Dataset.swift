@@ -1,10 +1,10 @@
 public struct Dataset {
     
-    var name: String = ""
-    var columns: [String: Column] = [:]
-    var rows: [[String: Property]] = []
+    public var name: String = ""
+    public var columns: [String: Column] = [:]
+    public var rows: [[String: Property]] = []
 
-    init(name: String, columns: [Column] = [], rows: [[Property]] = []) {
+    public init(name: String, columns: [Column] = [], rows: [[Property]] = []) {
         self.name = name
         columns.forEach { addColumn(column: $0) }
         rows.forEach { addRow(row: $0) }
@@ -26,7 +26,7 @@ public struct Dataset {
         self.rows.append(newRow)
     }
 
-    public var asJson: [String : Any] {
+    var asJson: [String : Any] {
         var json: [String : Any] = [:]
 
         if (!columns.isEmpty) {

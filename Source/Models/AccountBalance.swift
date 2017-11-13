@@ -1,7 +1,7 @@
 public struct AccountBalance : Equatable, CustomStringConvertible {
     
-    var amount: Double
-    var currency: String
+    public var amount: Double
+    public var currency: String
     
     init(data: String) {
         let parts = data.components(separatedBy: " ")

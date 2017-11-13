@@ -1,17 +1,17 @@
 public struct Property : Equatable, CustomStringConvertible {
     
-    var name: String
-    var value: String
+    public var name: String
+    public var value: String
 
-    var asString: String? {
+    public var asString: String? {
         return value
     }
 
-    var asDouble: Double? {
+    public var asDouble: Double? {
         return Double(value)
     }
 
-    var asBool: Bool? {
+    public var asBool: Bool? {
         let trues = ["true", "1", "on", "yes"]
         let falses = ["false", "0", "off", "no"]
         let lowerValue = value.lowercased()
@@ -23,17 +23,17 @@ public struct Property : Equatable, CustomStringConvertible {
         }
     }
 
-    init(name: String, value: String) {
+    public init(name: String, value: String) {
         self.name = name
         self.value = value
     }
 
-    init(name: String, value: Double) {
+    public init(name: String, value: Double) {
         self.name = name
         self.value = value.description
     }
 
-    init(name: String, value: Bool) {
+    public init(name: String, value: Bool) {
         self.name = name
         self.value = value.description
     }
