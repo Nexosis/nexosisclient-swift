@@ -97,6 +97,7 @@ struct UrlAndBodyEncoding: ParameterEncoding {
 
     func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
         var encodedUrlRequest = try URLEncoding.queryString.encode(try urlRequest.asURLRequest(), with: parameters)
+        encodedUrlRequest.url = URL(string: encodedUrlRequest.url!.absoluteString.replacingOccurrences(of: "%5B%5D=", with: "="))
 
         if (!body.isEmpty) {
             let data = try JSONSerialization.data(withJSONObject: body, options: [])
